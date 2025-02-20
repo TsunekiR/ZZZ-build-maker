@@ -15,10 +15,11 @@ const getChars = async() => {
 export default async function CharStats() {
 
     const {chars} = await getChars();
+    const specificChar = chars.filter(char => char.charName == "Harumasa")
 
     return (
         <>
-        {chars.map((char) => (
+        {specificChar.map((char) => (
             <div>
                 <h1>Name: {char.charName}</h1>
                 <p>Type: {char.charType}</p>
