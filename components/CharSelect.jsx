@@ -15,17 +15,18 @@ const getChars = async() => {
 export default async function CharStats() {
 
     const {chars} = await getChars();
-    const specificChar = chars.filter(char => char.charName == "Harumasa")
+    // const specificChar = chars.filter(char => char.charName == "Harumasa")
 
     return (
-        <>
-        {specificChar.map((char) => (
-            <div>
-                <h1>Name: {char.charName}</h1>
+        <select name="charSelect" id="charSelect">
+            <option value="">--Please select a character--</option>
+        {chars.map((char) => (
+            <option value={char.charName}>{char.charName}
+                {/* <h1>Name: {char.charName}</h1>
                 <p>Type: {char.charType}</p>
-                <p>Base ATK: {char.charBaseAttack}</p>
-            </div>
+                <p>Base ATK: {char.charBaseAttack}</p> */}
+            </option>
         ))}
-        </>
+        </select>
     )
 }
