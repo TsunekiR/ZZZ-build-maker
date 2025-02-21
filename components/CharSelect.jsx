@@ -1,30 +1,23 @@
+"use client"; // This is a client-side only module
+import React from "react";
 
-const getChars = async() => {
-    try {
-        const res = await fetch('http://localhost:3000/api/char');
-        if(!res.ok) {
-            throw new Error("Failed to fetch topics");
-        }
+export default function CharSelect(props) {
+    // Props
+    const propValue = props.value;
+    const propsValues = props.values;
+    const propOnChange = props.onChange;
 
-        return res.json()
-    } catch (error) {
-        console.log("Error retrieving characters' info.", error);
+    // Methods
+    const onChangeSelect = (value) => {
+      propOnChange(value);
     }
-}
-
-export default async function CharStats() {
-
-    const {chars} = await getChars();
-    // const specificChar = chars.filter(char => char.charName == "Harumasa")
 
     return (
-        <select name="charSelect" id="charSelect">
-            <option value="">--Please select a character--</option>
-        {chars.map((char) => (
-            <option value={char.charName}>{char.charName}
-                {/* <h1>Name: {char.charName}</h1>
-                <p>Type: {char.charType}</p>
-                <p>Base ATK: {char.charBaseAttack}</p> */}
+        <select name="charSelect" id="charSelect" value={propValue} onChange={(e) => onChangeSelect(e.target.value)}>
+            <option value={""}>--Please select a character--</option>
+        {propsValues && propsValues?.map((char) => (
+            <option key={char._id} value={char.charName}>
+              {char.charName}
             </option>
         ))}
         </select>
