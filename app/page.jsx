@@ -1,44 +1,28 @@
 "use client"; // This is a client-side only module
 import React from "react";
 import CharSelect from "@/components/CharSelect";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useChars } from "@/hooks/useChars";
 
 export default function Home() {
   // State
+  const chars = useChars();
   const [selectedCharName, setSelectedCharName] = useState("");
-  const [chars, setChars] = useState(null);
 
   // Derived state
   const selectedChar = chars?.find((char) => char.charName === selectedCharName);
 
-  useEffect(() => {
-    async function getChars() {
-      try {
-          console.log("Fetching characters...");
-          const res = await fetch('http://localhost:3000/api/char');
-          if(!res.ok) {
-              throw new Error("Failed to fetch characters");
-          }
-
-          const resJSON = await res.json();
-          setChars(resJSON.chars);
-      } catch (error) {
-          console.log("Error retrieving characters.", error);
-      }
-    }
-
-    getChars();
-  }, []);
-
   return (
-    <div>
-      <h1>ZZZ build Maker Tool</h1>
+    <div className="p-5">
+      <p className="text-2xl">ZZZ build Maker Tool</p>
 
-      <CharSelect values={chars} value={selectedCharName} onChange={setSelectedCharName} />
+      <div className="mt-5">
+        <CharSelect values={chars} value={selectedCharName} onChange={setSelectedCharName} />
+      </div>
       
       {selectedChar && (
-        <div>
-          <h2>{selectedChar.charName}</h2>
+        <div className="mt-5">
+          <p>{selectedChar.charName}</p>
           <p>{selectedChar.charType}</p>
           <p>{selectedChar.charBaseAttack}</p>
         </div>

@@ -13,13 +13,21 @@ export default function CharSelect(props) {
     }
 
     return (
-        <select name="charSelect" id="charSelect" value={propValue} onChange={(e) => onChangeSelect(e.target.value)}>
-            <option value={""}>--Please select a character--</option>
-        {propsValues && propsValues?.map((char) => (
-            <option key={char._id} value={char.charName}>
-              {char.charName}
-            </option>
-        ))}
-        </select>
+        <>
+        {/* TODO: Add Loading... */}
+
+        {propsValues && propsValues.length === 0 && <p>No characters found</p>}
+
+        {propsValues && propsValues.length !== 0 &&
+            <select name="charSelect" id="charSelect" value={propValue} onChange={(e) => onChangeSelect(e.target.value)}>
+                <option value={""}>-- Please select a character --</option>
+                {propsValues?.map((char) => (
+                    <option key={char._id} value={char.charName}>
+                    {char.charName}
+                    </option>
+                ))}
+            </select>
+        }
+        </>
     )
 }
