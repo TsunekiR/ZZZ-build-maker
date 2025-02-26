@@ -1,10 +1,67 @@
 import mongoose, {Schema} from "mongoose";
 
+const buffSchema = new Schema(
+    {
+        type: String,
+        value: [Number],
+        origin: [String],
+        bonusCondition: [Number],
+        bonusValue: [Number]
+    }
+)
+
+const buffedMoveSchema = new Schema(
+    {
+        id: Number,
+        buffs: [buffSchema]
+    }
+)
+
+const buffedStatSchema = new Schema(
+  {
+      id: String,
+      buffs: [buffSchema]
+  }
+)
+
 const charSchema = new Schema(
     {
-        charName: String,
-        charType: String,
-        charBaseAttack: Number,
+        charInfo: {
+            charname: String,
+            charType: String,
+            charAttribute: String,
+            charFaction: String,
+            moveList: {
+                basicAttack: [Number],
+                dashAttack: [Number],
+                dodgeCounter: [Number],
+                specialAttack: [Number],
+                exSpecialAttack: [Number],
+                chainAttack: [Number],
+                ultimate: [Number],
+                quickAssist: [Number],
+                defEvaAssist: [Number],
+                assistFollowup: [Number],
+            }
+        },
+        additionalAbilityConditions: [String],
+        charBaseStats: {
+            hp: Number,
+            atk: Number,
+            def: Number,
+            impact: Number,
+            critRate: Number,
+            critDmg: Number,
+            anomalyMastery: Number,
+            anomalyProficiency: Number,
+            penRatio: Number,
+            energyRegen: Number
+        },
+            charSelfBuffs: {
+            combatStats: [buffedStatSchema],
+            moves: [buffedMoveSchema]
+        },
+        moveValues: [[Number]]
     }
 );
 
