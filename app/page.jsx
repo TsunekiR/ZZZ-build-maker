@@ -3,6 +3,7 @@ import React from "react";
 import CharSelect from "@/components/CharSelect";
 import { useState } from "react";
 import { useChars } from "@/hooks/useChars";
+import { stdStatsCalculator } from "@/models/stdStatsCalculator";
 
 function additionalDmgCalc(moveId,selectedChar) {
   let additionalDmg = 0;
@@ -40,12 +41,14 @@ export default function Home() {
   const selectedChar = chars?.find((char) => char.charInfo.charName === selectedCharName);
 
   if (selectedChar){
-    for (let index = 0; index < selectedChar.charInfo.moveList.basicAttack.length; index++) {
-      basicAtkDmg[index] = 1 * (1 + additionalDmgCalc(index+1,selectedChar))
-    }
+    // for (let index = 0; index < selectedChar.charInfo.moveList.basicAttack.length; index++) {
+    //   basicAtkDmg[index] = 1 * (1 + additionalDmgCalc(index+1,selectedChar))
+    // }
+    let selectedCharStdStats = stdStatsCalculator(selectedChar, 1)
+    console.log(selectedCharStdStats)
   }
 
-  console.log(basicAtkDmg)
+  console.log(selectedChar)
 
   return (
     <div className="p-5">

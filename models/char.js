@@ -10,6 +10,16 @@ const buffSchema = new Schema(
     }
 )
 
+const moveSchema = new Schema(
+    {
+        id: Number,
+        element: String,
+        dmgValues : [Number],
+        dazeValues : [Number],
+        anomBuildupValues: [Number]
+    }
+)
+
 const buffedMoveSchema = new Schema(
     {
         id: Number,
@@ -58,10 +68,11 @@ const charSchema = new Schema(
             energyRegen: Number
         },
             charSelfBuffs: {
+            stdStats: [buffedStatSchema],
             combatStats: [buffedStatSchema],
             moves: [buffedMoveSchema]
         },
-        moveValues: [[Number]]
+        moveValues: [moveSchema]
     }
 );
 

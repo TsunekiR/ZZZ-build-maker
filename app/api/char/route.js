@@ -3,9 +3,9 @@ import connectMongoDB from "@/libs/mongodb";
 import { NextResponse } from "next/server";
 
 // export async function POST(request) {
-//     const {charName, charType, charBaseAttack} = await request.json();
+//     const {charInfo, additionalAbilityConditions, charBaseStats, charSelfBuffs,moveValues} = await request.json();
 //     await connectMongoDB();
-//     await char.create({charName, charType, charBaseAttack});
+//     await char.create({charInfo, additionalAbilityConditions, charBaseStats, charSelfBuffs,moveValues});
 //     return NextResponse.json({message: "Char created"}, {status: 201});
 // }
 
