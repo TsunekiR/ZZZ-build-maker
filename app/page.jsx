@@ -4,48 +4,24 @@ import CharSelect from "@/components/CharSelect";
 import { useState } from "react";
 import { useChars } from "@/hooks/useChars";
 import { stdStatsCalculator } from "@/models/stdStatsCalculator";
-
-function additionalDmgCalc(moveId,selectedChar) {
-  let additionalDmg = 0;
-  let buffList = selectedChar.charSelfBuffs.moves?.find((move) => move.id === moveId);
-
-  if (buffList) {
-    for (let index = 0; index < buffList.buffs.length; index++) {
-      if(buffList.buffs[index].type === "additionalDmg"){
-        additionalDmg += buffList.buffs[index].value[0]/100;
-      }
-    }
-  }
-
-  buffList = selectedChar.charSelfBuffs.moves?.find((move) => move.id === 0);
-
-  if (buffList) {
-    for (let index = 0; index < buffList.buffs.length; index++) {
-      if(buffList.buffs[index].type === "additionalDmg"){
-        additionalDmg += buffList.buffs[index].value[0]/100;
-      }
-    }
-  }
-
-  return(additionalDmg);
-}
+import { moveValueCalc } from "@/models/moveCalculator";
 
 export default function Home() {
   // State
   const chars = useChars();
   const [selectedCharName, setSelectedCharName] = useState("");
 
-  let basicAtkDmg = [];
-
   // Derived state
   const selectedChar = chars?.find((char) => char.charInfo.charName === selectedCharName);
 
   if (selectedChar){
-    // for (let index = 0; index < selectedChar.charInfo.moveList.basicAttack.length; index++) {
-    //   basicAtkDmg[index] = 1 * (1 + additionalDmgCalc(index+1,selectedChar))
-    // }
-    let selectedCharStdStats = stdStatsCalculator(selectedChar, 1)
+    let coreSkillLevel = 6;
+    let mindscapeLevel = 2;
+    let skillLevel = 1;
+    let selectedCharMoveValues = moveValueCalc(selectedChar, coreSkillLevel, mindscapeLevel, skillLevel)
+    let selectedCharStdStats = stdStatsCalculator(selectedChar, coreSkillLevel)
     console.log(selectedCharStdStats)
+    console.log(selectedCharMoveValues)
   }
 
   console.log(selectedChar)

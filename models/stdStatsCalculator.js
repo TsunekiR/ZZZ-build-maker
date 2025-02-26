@@ -9,7 +9,7 @@ function coreSkillStat(buffs,coreSkillLevel){
 }
 
 export function stdStatsCalculator (char, coreSkillLevel) {
-    let stdStats = char.charBaseStats;
+    let stdStats = Object.assign({}, char.charBaseStats);
 
     for (let stat in stdStats){
         let stdStatflat = 0;
