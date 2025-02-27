@@ -3,8 +3,8 @@ import React from "react";
 import CharSelect from "@/components/CharSelect";
 import { useState } from "react";
 import { useChars } from "@/hooks/useChars";
-import { stdStatsCalculator } from "@/models/stdStatsCalculator";
-import { moveValueCalc } from "@/models/moveCalculator";
+import { stdStatsCalculator } from "@/libs/stdStatsCalculator";
+import { moveValueCalc } from "@/libs/moveCalculator";
 
 export default function Home() {
   // State
@@ -28,7 +28,7 @@ export default function Home() {
 
   return (
     <div className="p-5">
-      <p className="text-2xl">ZZZ build Maker Tool</p>
+      <span className="text-2xl bg-gradient-to-r from-pink-500 to-blue-500 text-transparent bg-clip-text">ZZZ</span>
 
       <div className="mt-5">
         <CharSelect values={chars} value={selectedCharName} onChange={setSelectedCharName} />

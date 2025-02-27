@@ -1,4 +1,12 @@
 "use client"; // This is a client-side only module
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+  } from "@/components/ui/select"
+import { Button } from "@/components/ui/button"
 import React from "react";
 
 export default function CharSelect(props) {
@@ -7,11 +15,6 @@ export default function CharSelect(props) {
     const propsValues = props.values;
     const propOnChange = props.onChange;
 
-    // Methods
-    const onChangeSelect = (value) => {
-      propOnChange(value);
-    }
-
     return (
         <>
         {/* TODO: Add Loading... */}
@@ -19,14 +22,29 @@ export default function CharSelect(props) {
         {propsValues && propsValues.length === 0 && <p>No characters found</p>}
 
         {propsValues && propsValues.length !== 0 &&
-            <select name="charSelect" id="charSelect" value={propValue} onChange={(e) => onChangeSelect(e.target.value)}>
-                <option value={""}>-- Please select a character --</option>
-                {propsValues?.map((char) => (
-                    <option key={char.charInfo.charName} value={char.charInfo.charName}>
-                    {char.charInfo.charName}
-                    </option>
-                ))}
-            </select>
+            <div className="flex flex-row gap-4">
+                <Select onValueChange={propOnChange} value={propValue}>
+                    <SelectTrigger>
+                        <SelectValue placeholder="Please select a character" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        {propsValues?.map((char) => (
+                            <SelectItem key={char.charInfo.charName} value={char.charInfo.charName}>
+                                {char.charInfo.charName}
+                            </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
+                
+                <Button variant="destructive" onClick={() => propOnChange("")}>Clear</Button>
+                {/* <select name="charSelect" id="charSelect" value={propValue} onChange={(e) => onChangeSelect(e.target.value)}>
+                    {propsValues?.map((char) => (
+                        <option key={char.charInfo.charName} value={char.charInfo.charName}>
+                        {char.charInfo.charName}
+                        </option>
+                        ))}
+                        </select> */}
+            </div>
         }
         </>
     )

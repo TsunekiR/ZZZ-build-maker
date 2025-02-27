@@ -55,7 +55,6 @@ function basicAttackCalc (char, coreSkillLevel, mindscapeLevel, skillLevel){
 }
 
 export function moveValueCalc (char, coreSkillLevel, mindscapeLevel,skillLevel){
-    baseMoveValueCalc (1, char, skillLevel)
     let moveValues = {}
     moveValues["basicAttack"] = basicAttackCalc(char, coreSkillLevel, mindscapeLevel, skillLevel)
 
