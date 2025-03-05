@@ -59,10 +59,73 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+    * {
+        @apply border-border outline-ring/50;
+    }
+    body {
+        @apply bg-background text-foreground;
+    }
+    .point-bg {
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABuSURBVHgBvZBRCoAwDEPrVIY38P439G9F3WwhhSD78cMFHhtd04aJ/K3pdXeSkVErRiNk6Qxhw2lc/MiGGc2rsaGmOGsY2ZCBN++oNcTSMCT5KN6gyKyY7DpQq5xbaH00JkQoOLuG+NbQDZoM1QOQwRz653KR6QAAAABJRU5ErkJggg==);
+        background-repeat: repeat;
+        background-size: .02rem .02rem;
+    }
+    .linear-bg {
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.2) 0.3%, rgba(7, 7, 7, 0.9) 97.7%);
+    }
+    .rolling-bg__cover-full {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    .rolling-bg__content {
+        z-index: 0;
+        position: relative;
+    }
+    .rolling-bg__ul {
+        display: flex
+    }    
+    .rolling-bg__ul>li {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        font-size: 200px;
+        font-weight: 400;
+        font-family: Impact!important;
+        line-height: .85;
+        /* transition: all .3s linear; */
+        display: block
+    }
+    .rolling-bg__ul.animation_1 {
+        animation: 200s linear infinite seamlessScroll_1
+    }
+    
+    .rolling-bg__ul.animation_2 {
+        animation: 200s linear infinite seamlessScroll_2
+    }
+    
+    @keyframes seamlessScroll_1 {
+        0% {
+            transform: translate(0%)
+        }
+        50% {
+            transform: translate(-50%)
+        }
+        100% {
+            transform: translate(0%)
+        }
+    }
+    
+    @keyframes seamlessScroll_2 {
+        0% {
+            transform: translate(-50%)
+        }
+        50% {
+            transform: translate(0%)
+        }
+        100% {
+            transform: translate(-50%)
+        }
+    }
 }

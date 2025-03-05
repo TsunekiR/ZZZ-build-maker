@@ -1,14 +1,8 @@
 "use client"; // This is a client-side only module
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-  } from "@/components/ui/select"
+
 import { cn, getAvatarImg } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { ChevronDown, ChevronsUpDown, Check } from "lucide-react"
+import { ChevronsUpDown, Check } from "lucide-react"
 import {
   Command,
   CommandEmpty,
