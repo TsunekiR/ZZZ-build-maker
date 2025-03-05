@@ -28,18 +28,56 @@ function additionalDmgCalc(moveId,selectedChar,coreSkillLevel,mindscapeLevel) {
     buffList = selectedChar.charSelfBuffs.moves?.find((move) => move.id === 0);
 
     if (buffList) {
-    for (let index = 0; index < buffList.buffs.length; index++) {
-        if(buffList.buffs[index].type === "additionalDmg"){
-            if(buffList.buffs[index].origin[0] === "core"){
-                additionalDmg += buffList.buffs[index].value[coreSkillLevel]/100;
-            } else {
-                additionalDmg += buffList.buffs[index].value[0]/100;
+        for (let index = 0; index < buffList.buffs.length; index++) {
+            if(buffList.buffs[index].type === "additionalDmg"){
+                if(buffList.buffs[index].origin[0] === "core"){
+                    additionalDmg += buffList.buffs[index].value[coreSkillLevel]/100;
+                } else {
+                    additionalDmg += buffList.buffs[index].value[0]/100;
+                }
             }
         }
     }
-}
 
     return(additionalDmg);
+}
+
+function additionalElementalDmgCalc(moveId,selectedChar,coreSkillLevel,mindscapeLevel) {
+    let additionalElementalDmg = 0;
+    let buffList = selectedChar.charSelfBuffs.moves?.find((move) => move.id === moveId);
+
+    let moveElement = selectedChar.moveValues[moveId-1].element
+    moveElement = String(moveElement).charAt(0).toUpperCase() + String(moveElement).slice(1)
+  
+    if (buffList) {
+      for (let index = 0; index < buffList.buffs.length; index++) {
+        if(buffList.buffs[index].type === "additional" + moveElement + "Dmg"){
+            if(buffList.buffs[index].origin[0] === "core"){
+                additionalElementalDmg += buffList.buffs[index].value[coreSkillLevel]/100;
+            } else if(buffList.buffs[index].origin[0] === "mindscape" && mindscapeLevel >= buffList.buffs[index].bonusCondition[0]){
+                additionalElementalDmg += buffList.buffs[index].bonusValue[0]/100;
+            } else {
+                additionalElementalDmg += buffList.buffs[index].value[0]/100;
+            }
+        }
+      }
+    }
+
+    buffList = selectedChar.charSelfBuffs.moves?.find((move) => move.id === 0);
+
+    if (buffList) {
+        for (let index = 0; index < buffList.buffs.length; index++) {
+            if(buffList.buffs[index].type === "additional" + moveElement + "Dmg"){
+                if(buffList.buffs[index].origin[0] === "core"){
+                    additionalElementalDmg += buffList.buffs[index].value[coreSkillLevel]/100;
+                } else {
+                    additionalElementalDmg += buffList.buffs[index].value[0]/100;
+                }
+            }
+        }
+    }
+
+    return(additionalElementalDmg);
 }
 
 function basicAttackCalc (char, coreSkillLevel, mindscapeLevel, skillLevel){
@@ -47,7 +85,7 @@ function basicAttackCalc (char, coreSkillLevel, mindscapeLevel, skillLevel){
     for (let index = 0; index < char.charInfo.moveList.basicAttack.length; index++) {
         basicAtk[index] = {
             "id" : index+1,
-            "dmgValue" : baseMoveValueCalc(index+1, char, skillLevel)["dmgValue"] * (1 + additionalDmgCalc(index+1,char,coreSkillLevel,mindscapeLevel))
+            "dmgValue" : baseMoveValueCalc(index+1, char, skillLevel)["dmgValue"] * (1 + additionalDmgCalc(index+1,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(index+1,char,coreSkillLevel,mindscapeLevel))
         }
     }
     return basicAtk
