@@ -25,7 +25,7 @@ const eousIcon = "https://upload-os-bbs.hoyolab.com/upload/2024/07/03/19ebbb332c
 
 const Navbar = () => {
     // TODO: improve performance when changing pages
-    // TODO: highlight current page1
+    // TODO: highlight current page
     return (
         <header className="flex relative z-50 h-20 w-full shrink-0 items-center px-4 md:px-6 bg-boulder-900 backdrop-blur-md">
             <Sheet>

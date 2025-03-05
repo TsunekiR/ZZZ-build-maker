@@ -40,7 +40,7 @@ export default function CharSelect(props) {
 
     return (
         <>
-        {/* TODO: Add Loading... */}
+        {propValues === null && <p>Loading characters...</p>}
 
         {propValues && propValues.length === 0 && <p>No characters found</p>}
 
