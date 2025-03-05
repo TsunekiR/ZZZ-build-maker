@@ -15,7 +15,6 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-  ShieldQuestion,
 } from "@/components/ui/popover"
 import { useMemo, useState } from "react";
 import Image from "next/image";

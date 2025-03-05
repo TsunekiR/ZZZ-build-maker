@@ -2,6 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import RollingBackground from "@/components/layout/RollingBackground";
 
+import Navbar from "@/components/layout/Navbar";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -21,11 +23,15 @@ export default function RootLayout({ children }) {
 return (
     <html lang="en" className="dark">
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-            <RollingBackground />
-            <div className="relative z-50 w-full flex flex-col overflow-y-hidden h-screen">
-                {children}
+            <Navbar />
+
+            <div className="container mx-auto px-4 md:px-6 py-5">
+                <RollingBackground />
+                <div className="relative z-50 w-full flex flex-col overflow-y-hidden h-screen">
+                    {children}
+                </div>
             </div>
-      </body>
+        </body>
     </html>
   );
 }

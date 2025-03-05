@@ -5,6 +5,10 @@ import { useState } from "react";
 import { useChars } from "@/hooks/useChars";
 import { stdStatsCalculator } from "@/libs/stdStatsCalculator";
 import { moveValueCalc } from "@/libs/moveCalculator";
+import {
+    Card,
+    CardContent,
+} from "@/components/ui/card"
 
 export default function Home() {
   // State
@@ -27,19 +31,19 @@ export default function Home() {
   console.log(selectedChar)
 
   return (
-    <div className="p-5">
-      <span className="text-2xl bg-gradient-to-r from-pink-500 to-blue-500 text-transparent bg-clip-text">ZZZ</span>
-
-      <div className="mt-5">
-        <CharSelect values={chars} value={selectedCharName} onChange={setSelectedCharName} />
-      </div>
-      
-      {selectedChar && (
-        <div className="mt-5">
-          <p>{selectedChar.charInfo.charType}</p>
-          <p>{selectedChar.charBaseStats.atk}</p>
-        </div>
-      )}
-    </div>
+    <Card>
+        <CardContent>
+            <div className="mt-5">
+                <CharSelect values={chars} value={selectedCharName} onChange={setSelectedCharName} />
+            </div>
+            
+            {selectedChar && (
+                <div className="mt-5">
+                    <p>{selectedChar.charInfo.charType}</p>
+                    <p>{selectedChar.charBaseStats.atk}</p>
+                </div>
+            )}
+        </CardContent>
+    </Card>
   );
 }

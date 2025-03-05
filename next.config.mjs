@@ -9,6 +9,13 @@ const nextConfig = {
             pathname: '/**',
             search: '',
           },
+          {
+            protocol: 'https',
+            hostname: 'upload-os-bbs.hoyolab.com',
+            port: '',
+            pathname: '/**',
+            search: '',
+          },
         ],
       },
 };
