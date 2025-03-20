@@ -104,7 +104,16 @@
     .rolling-bg__ul.animation_2 {
         animation: 200s linear infinite seamlessScroll_2
     }
+
+    .character-info-card {
+        background-color: #1d1f1e;
+        border-radius: 1.5rem;
+    }
     
+    .character-info-card-info-icon{
+        width: 32px;
+    }
+
     @keyframes seamlessScroll_1 {
         0% {
             transform: translate(0%)
