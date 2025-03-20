@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useChars } from "@/hooks/useChars";
 import { stdStatsCalculator } from "@/libs/stdStatsCalculator";
 import { moveValueCalc } from "@/libs/moveCalculator";
-import { getCharFullBodyImg } from "@/lib/utils"
+import { getCharHalfBodyImg, getFactionImg, getAttributeImg, getTypeImg } from "@/lib/utils"
 
 import {
     Card,
@@ -44,19 +44,19 @@ export default function Home() {
             {selectedChar && (
               <div className="flex justify-between flex-col md:flex-row">
                 <div className="md:order-last p-2 flex md:w-1/2">
-                    <img className="drop-shadow-2xl" alt="test" src={getCharFullBodyImg(selectedCharName)}/>
+                    <img className="drop-shadow-2xl" alt="test" src={getCharHalfBodyImg(selectedCharName)}/>
                 </div>
                 <div className="mt-5 md:w-1/2">
                     <p className="text-5xl">{selectedChar.charInfo.charName}</p>
                     <div className="flex flex-row md:flex-col space-x-1 md:space-x-0 py-1">
                       <div className="flex flex-row py-1">
                         <p className="hidden md:block text-3xl self-center"> {selectedChar.charInfo.charFaction}</p>
-                        <img className="character-info-card-info-icon md:ml-2 md:w-[3rem]" src="https://act-upload.hoyoverse.com/event-ugc-hoyowiki/2025/01/03/99550110/5d8267a1f12bdb48fb4f8974ab755ffe_3064048326243400422.png"></img>
+                        <img className="character-info-card-info-icon md:ml-2 md:w-[3rem]" src={getFactionImg(selectedChar.charInfo.charFaction)}></img>
                       </div>
                       <div className="flex flex-row">
-                        <img className="character-info-card-info-icon" src="https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/05/07/f7bdcd7c6574c22e6c90f25cae025376_3782022421620830515.png"></img>
+                        <img className="character-info-card-info-icon" src={getAttributeImg(selectedChar.charInfo.charAttribute)}></img>
                         <p className="hidden md:block text-2xl">{selectedChar.charInfo.charAttribute}</p>
-                        <img className="character-info-card-info-icon md:ml-2" src="https://act-webstatic.hoyoverse.com/event-static-hoyowiki-admin/2024/05/07/78d407e2839038da13d26ad84b99a6b8_8151225937174652019.png"></img>
+                        <img className="character-info-card-info-icon md:ml-2" src={getTypeImg(selectedChar.charInfo.charType)}></img>
                         <p className="hidden md:block text-2xl">{selectedChar.charInfo.charType}</p>          
                       </div>
                     </div>
