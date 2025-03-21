@@ -11,6 +11,7 @@ import { getCharHalfBodyImg, getFactionImg, getAttributeImg, getTypeImg } from "
 import {
     Card,
     CardContent,
+    CardHeader,
 } from "@/components/ui/card";
 
 export default function Home() {
@@ -63,6 +64,115 @@ export default function Home() {
                                 <p className="hidden md:block text-2xl">{selectedChar.charInfo.charType}</p>          
                             </div>
                             </div>
+                        </div>
+                    </div>
+                </CardContent>
+            </Card>
+            <Card>
+                <CardHeader>
+                  Stats
+                </CardHeader>
+                <CardContent>
+                    <div className="flex justify-between flex-col md:flex-row">
+                        <div className="p-2 md:w-1/2 md:pr-6">
+                          <p className="text-3xl self-center">Base Stats</p>
+                          <div className="flex justify-between flex-col xl:flex-row xl:gap-2">
+                            <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
+                                <p>HP</p>
+                                <p>100</p>
+                            </div>
+                            <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
+                                <p>ATK</p>
+                                <p>100</p>
+                            </div>
+                          </div>
+                          <div className="flex justify-between flex-col xl:flex-row xl:gap-2">
+                            <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
+                                <p>DEF</p>
+                                <p>100</p>
+                            </div>
+                            <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
+                                <p>Impact</p>
+                                <p>100</p>
+                            </div>
+                          </div><div className="flex justify-between flex-col xl:flex-row xl:gap-2">
+                            <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
+                                <p>CRIT Rate</p>
+                                <p>100</p>
+                            </div>
+                            <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
+                                <p>CRIT DMG</p>
+                                <p>100</p>
+                            </div>
+                          </div><div className="flex justify-between flex-col xl:flex-row xl:gap-2">
+                            <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
+                                <p>Anomaly Mastery</p>
+                                <p>100</p>
+                            </div>
+                            <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
+                                <p>Anomaly Proficiency</p>
+                                <p>100</p>
+                            </div>
+                          </div><div className="flex justify-between flex-col xl:flex-row xl:gap-2">
+                            <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
+                                <p>Pen Ratio</p>
+                                <p>100</p>
+                            </div>
+                            <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
+                                <p>Energy Regen</p>
+                                <p>100</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="p-2 md:w-1/2">
+                          <p className="text-3xl self-center">Combat Stats</p>
+                          <div className="flex justify-between flex-col xl:flex-row xl:gap-2">
+                            <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
+                                <p>HP</p>
+                                <p>100</p>
+                            </div>
+                            <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
+                                <p>ATK</p>
+                                <p>100</p>
+                            </div>
+                          </div>
+                          <div className="flex justify-between flex-col xl:flex-row xl:gap-2">
+                            <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
+                                <p>DEF</p>
+                                <p>100</p>
+                            </div>
+                            <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
+                                <p>Impact</p>
+                                <p>100</p>
+                            </div>
+                          </div><div className="flex justify-between flex-col xl:flex-row xl:gap-2">
+                            <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
+                                <p>CRIT Rate</p>
+                                <p>100</p>
+                            </div>
+                            <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
+                                <p>CRIT DMG</p>
+                                <p>100</p>
+                            </div>
+                          </div><div className="flex justify-between flex-col xl:flex-row xl:gap-2">
+                            <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
+                                <p>Anomaly Mastery</p>
+                                <p>100</p>
+                            </div>
+                            <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
+                                <p>Anomaly Proficiency</p>
+                                <p>100</p>
+                            </div>
+                          </div><div className="flex justify-between flex-col xl:flex-row xl:gap-2">
+                            <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
+                                <p>Pen Ratio</p>
+                                <p>100</p>
+                            </div>
+                            <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
+                                <p>Energy Regen</p>
+                                <p>100</p>
+                            </div>
+                          </div>
                         </div>
                     </div>
                 </CardContent>
