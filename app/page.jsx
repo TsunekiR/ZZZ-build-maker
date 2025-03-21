@@ -12,7 +12,6 @@ import {
     Card,
     CardContent,
 } from "@/components/ui/card";
-import getAvatarImg from "@/lib/utils";
 
 export default function Home() {
   // State
@@ -32,8 +31,6 @@ export default function Home() {
     console.log(selectedCharMoveValues)
   }
 
-  console.log(selectedChar)
-
   return (
     <Card className="character-info-card rounded-3xl border-2 bg-[auto_5px] bg-[url(https://wiki.hoyolab.com/_nuxt/img/card-shading-bg.706c7b9.png)] bg-repeat">
         <CardContent>
@@ -51,12 +48,12 @@ export default function Home() {
                     <div className="flex flex-row md:flex-col space-x-1 md:space-x-0 py-1">
                       <div className="flex flex-row py-1">
                         <p className="hidden md:block text-3xl self-center"> {selectedChar.charInfo.charFaction}</p>
-                        <img className="character-info-card-info-icon md:ml-2 md:w-[3rem]" src={getFactionImg(selectedChar.charInfo.charFaction)}></img>
+                        <img className="character-info-card-icon md:ml-2 md:size-[3rem]" src={getFactionImg(selectedChar.charInfo.charFaction)}></img>
                       </div>
-                      <div className="flex flex-row">
-                        <img className="character-info-card-info-icon" src={getAttributeImg(selectedChar.charInfo.charAttribute)}></img>
+                      <div className="flex flex-row py-1 md:gap-x-2">
+                        <img className="character-info-card-icon" src={getAttributeImg(selectedChar.charInfo.charAttribute)}></img>
                         <p className="hidden md:block text-2xl">{selectedChar.charInfo.charAttribute}</p>
-                        <img className="character-info-card-info-icon md:ml-2" src={getTypeImg(selectedChar.charInfo.charType)}></img>
+                        <img className="character-info-card-icon" src={getTypeImg(selectedChar.charInfo.charType)}></img>
                         <p className="hidden md:block text-2xl">{selectedChar.charInfo.charType}</p>          
                       </div>
                     </div>

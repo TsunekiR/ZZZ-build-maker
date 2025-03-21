@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sheet, SheetTrigger, SheetContent, SheetTitle, SheetHeader, SheetFooter } from "@/components/ui/sheet";
+import { Sheet, SheetTrigger, SheetContent, SheetTitle, SheetHeader, SheetFooter, SheetClose } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button"
 import { NavigationMenu, NavigationMenuList, NavigationMenuLink, NavigationMenuItem } from "@/components/ui/navigation-menu"
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
@@ -46,12 +46,14 @@ const Navbar = () => {
                     </SheetHeader>
                     <div className="grid gap-2 py-6">
                         {items.map((item, index) => (
-                            <Button variant="ghost" key={index}>
-                                <Link href={item.url} className="flex w-full items-center py-2 text-lg font-semibold" prefetch={false}>
-                                    {/* {item.icon && <item.icon className="h-6 w-6 mr-2" />} */}
-                                    {item.title}
-                                </Link>
-                            </Button>
+                            <SheetClose asChild key={index}>
+                                <Button asChild variant="ghost" className="justify-start text-lg">
+                                    <Link href={item.url} className="flex py-2 ">
+                                        {/* {item.icon && <item.icon className="h-6 w-6 mr-2" />} */}
+                                        {item.title}
+                                    </Link>
+                                </Button>
+                            </SheetClose>
                         ))}
                     </div>
                 </SheetContent>

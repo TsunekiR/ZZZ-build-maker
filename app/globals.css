@@ -110,8 +110,9 @@
         border-radius: 1.5rem;
     }
     
-    .character-info-card-info-icon{
+    .character-info-card-icon{
         width: 32px;
+        height: 32px;
     }
 
     @keyframes seamlessScroll_1 {

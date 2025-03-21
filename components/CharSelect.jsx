@@ -87,7 +87,7 @@ export default function CharSelect(props) {
                     </PopoverContent>
                 </Popover>
                 
-                <Button variant="destructive" onClick={() => propOnChange("")}>Clear</Button>
+                <Button onClick={() => propOnChange("")}>Clear</Button>
             </div>
         }
         </>

@@ -27,8 +27,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 return (
-  <html lang="en" className={zzzFont.className + " dark"} suppressHydrationWarning>
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning>
+  <html lang="en" className="dark" suppressHydrationWarning>
+        <body className={`${zzzFont.className} ${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning>
             <Navbar />
             <RollingBackground />
 
