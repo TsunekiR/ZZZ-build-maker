@@ -5,8 +5,12 @@ import { cn } from "@/lib/utils"
 const Card = React.forwardRef(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn("rounded-xl border bg-card text-card-foreground shadow", className)}
-    {...props} />
+    className={cn("rounded-3xl border-2 bg-card text-card-foreground shadow", className)}
+    {...props}>
+        <div className="bg-[auto_5px] bg-[url(https://wiki.hoyolab.com/_nuxt/img/card-shading-bg.706c7b9.png)] bg-repeat">
+            {props.children}
+        </div>
+  </div>
 ))
 Card.displayName = "Card"
 

@@ -31,11 +31,11 @@
     --radius: 0.5rem
   }
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 240 3% 12%;
     --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
+    --card: 240 3% 12%;
     --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
+    --popover: 240 3% 12%;
     --popover-foreground: 0 0% 98%;
     --primary: 0 0% 98%;
     --primary-foreground: 240 5.9% 10%;
@@ -103,11 +103,6 @@
     
     .rolling-bg__ul.animation_2 {
         animation: 200s linear infinite seamlessScroll_2
-    }
-
-    .character-info-card {
-        background-color: #1d1f1e;
-        border-radius: 1.5rem;
     }
     
     .character-info-card-icon{
