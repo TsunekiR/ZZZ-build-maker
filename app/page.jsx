@@ -22,15 +22,15 @@ export default function Home() {
   // Derived state
   const selectedChar = chars?.find((char) => char.charInfo.charName === selectedCharName);
 
-  if (selectedChar){
+//   if (selectedChar){
     let coreSkillLevel = 6;
     let mindscapeLevel = 2;
     let skillLevel = 1;
-    let selectedCharMoveValues = moveValueCalc(selectedChar, coreSkillLevel, mindscapeLevel, skillLevel)
-    let selectedCharStdStats = stdStatsCalculator(selectedChar, coreSkillLevel)
-    console.log(selectedCharStdStats)
-    console.log(selectedCharMoveValues)
-  }
+    let selectedCharMoveValues = selectedChar? moveValueCalc(selectedChar, coreSkillLevel, mindscapeLevel, skillLevel): null;
+    let selectedCharStdStats = selectedChar? stdStatsCalculator(selectedChar, coreSkillLevel): null;
+    console.log(selectedCharStdStats);
+    console.log(selectedCharMoveValues);
+//   }
 
   return (
     <div className="flex flex-col gap-5">
@@ -79,48 +79,48 @@ export default function Home() {
                           <div className="flex justify-between flex-col xl:flex-row xl:gap-2">
                             <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
                                 <p>HP</p>
-                                <p>100</p>
+                                <p>{selectedCharStdStats["hp"]}</p>
                             </div>
                             <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
                                 <p>ATK</p>
-                                <p>100</p>
+                                <p>{selectedCharStdStats["atk"]}</p>
                             </div>
                           </div>
                           <div className="flex justify-between flex-col xl:flex-row xl:gap-2">
                             <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
                                 <p>DEF</p>
-                                <p>100</p>
+                                <p>{selectedCharStdStats["def"]}</p>
                             </div>
                             <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
                                 <p>Impact</p>
-                                <p>100</p>
+                                <p>{selectedCharStdStats["impact"]}</p>
                             </div>
                           </div><div className="flex justify-between flex-col xl:flex-row xl:gap-2">
                             <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
                                 <p>CRIT Rate</p>
-                                <p>100</p>
+                                <p>{selectedCharStdStats["critRate"]}</p>
                             </div>
                             <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
                                 <p>CRIT DMG</p>
-                                <p>100</p>
+                                <p>{selectedCharStdStats["critDmg"]}</p>
                             </div>
                           </div><div className="flex justify-between flex-col xl:flex-row xl:gap-2">
                             <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
                                 <p>Anomaly Mastery</p>
-                                <p>100</p>
+                                <p>{selectedCharStdStats["anomalyMastery"]}</p>
                             </div>
                             <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
                                 <p>Anomaly Proficiency</p>
-                                <p>100</p>
+                                <p>{selectedCharStdStats["anomalyProficiency"]}</p>
                             </div>
                           </div><div className="flex justify-between flex-col xl:flex-row xl:gap-2">
                             <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
                                 <p>Pen Ratio</p>
-                                <p>100</p>
+                                <p>{selectedCharStdStats["penRatio"]}</p>
                             </div>
                             <div className="flex flex-row justify-between rounded-full bg-[#000000] p-2 inline mt-2 xl:w-1/2">
                                 <p>Energy Regen</p>
-                                <p>100</p>
+                                <p>{selectedCharStdStats["energyRegen"]}</p>
                             </div>
                           </div>
                         </div>
