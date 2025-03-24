@@ -23,3 +23,30 @@
 .core-skill-toggle.active > p {
     @apply !text-white;
 }
+
+
+@screen xl {
+    .core-skill-toggle-xl {
+        @apply p-2 pl-3 pr-4 border-4 rounded-full cursor-pointer;
+    }
+
+    .core-skill-toggle-xl > p {
+        @apply italic text-white/25 text-2xl;
+    }
+
+    .core-skill-toggle-xl:hover, .core-skill-toggle-xl:has(~ .core-skill-toggle-xl:hover) {
+        @apply border-white/50;
+    }
+
+    .core-skill-toggle-xl:hover > p, .core-skill-toggle-xl:has(~ .core-skill-toggle-xl:hover) > p {
+        @apply text-white/50;
+    }
+
+    .core-skill-toggle-xl.active {
+        @apply !border-white;
+    }
+
+    .core-skill-toggle-xl.active > p {
+        @apply !text-white;
+    }
+}
