@@ -110,6 +110,16 @@
         height: 32px;
     }
 
+    .character-stats-text{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-radius: calc(infinity * 1px);
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        background-color: black;
+    }
+
     @keyframes seamlessScroll_1 {
         0% {
             transform: translate(0%)
