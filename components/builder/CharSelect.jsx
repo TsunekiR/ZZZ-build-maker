@@ -40,19 +40,20 @@ export default function CharSelect(props) {
 
     return (
         <>
-        {propValues === null && <p>Loading characters...</p>}
+        {propValues === null && <p className="md:text-xl">Loading characters...</p>}
 
-        {propValues && propValues.length === 0 && <p>No characters found</p>}
+        {propValues && propValues.length === 0 && <p className="md:text-xl">No characters found</p>}
 
         {propValues && propValues.length !== 0 &&
-            <div className="flex flex-row gap-4 h-full">
+            <div className="flex flex-row gap-4">
                 <Popover open={open} onOpenChange={setOpen}>
                     <PopoverTrigger asChild>
                         <Button
                             variant="outline"
                             role="combobox"
                             aria-expanded={open}
-                            className="font-normal w-[200px] justify-between"
+                            size="xl"
+                            className="text-muted-foreground w-full justify-between"
                             >
                             {propValue? 
                                 propValue
@@ -60,9 +61,9 @@ export default function CharSelect(props) {
                             <ChevronsUpDown className="opacity-50" />
                         </Button>
                     </PopoverTrigger>
-                    <PopoverContent className="w-[200px] p-0">
+                    <PopoverContent className="p-0 w-[--radix-popover-trigger-width]" sideOffset={5}>
                         <Command>
-                            <CommandInput placeholder="Search character..." className="h-9" />
+                            <CommandInput placeholder="Search character..." className="h-9 md:text-lg" />
                             <CommandList>
                                 <CommandEmpty>No character found.</CommandEmpty>
                                 {charsByFaction && Object.keys(charsByFaction).map((faction) => (
@@ -71,6 +72,7 @@ export default function CharSelect(props) {
                                             <CommandItem
                                                 key={char.charInfo.charName}
                                                 value={char.charInfo.charName}
+                                                className="md:text-lg"
                                                 onSelect={(currentValue) => {
                                                     propOnChange(currentValue)
                                                     setOpen(false)
@@ -87,7 +89,7 @@ export default function CharSelect(props) {
                     </PopoverContent>
                 </Popover>
                 
-                <Button onClick={() => propOnChange("")}>Clear</Button>
+                <Button size="xl" onClick={() => propOnChange("")}>Clear</Button>
             </div>
         }
         </>
