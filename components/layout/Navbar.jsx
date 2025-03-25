@@ -21,7 +21,7 @@ const items = [
     },
 ];
 
-const eousIcon = "https://upload-os-bbs.hoyolab.com/upload/2024/07/03/19ebbb332c63caf074b9f469469a5be1_3831186086982316600.png";
+const eousIcon = "/favicon.ico";
 
 const Navbar = () => {
     // TODO: improve performance when changing pages
