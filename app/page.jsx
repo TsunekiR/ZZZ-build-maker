@@ -14,6 +14,7 @@ import {
 import CoreSkillToggle from "@/components/builder/CoreSkillToggle";
 import { Badge } from "@/components/ui/badge";
 import CardStats from "@/components/builder/Stats/CardStats";
+import CardMoves from "@/components/builder/Moves/CardMoves";
 
 export default function Home() {
     // State
@@ -75,6 +76,7 @@ export default function Home() {
                     </CardContent>
                 </Card>
                 <CardStats selectedCharStdStats={selectedCharStdStats} />
+                <CardMoves selectedCharMove={selectedCharMoveValues["basicAttack"]} title="Basic Attack" />
             </Suspense>
         )}
 
