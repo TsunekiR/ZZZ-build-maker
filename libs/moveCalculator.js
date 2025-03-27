@@ -1,9 +1,8 @@
-function baseMoveValueCalc (moveId, char, skillLevel) {
+function baseMoveValueCalc (moveData, char, skillLevel) {
     let baseMoveValues = {}
-    let move = char.moveValues?.find((move) => move.id === moveId);
-    baseMoveValues["dmgValue"] = move.dmgValues[0] + (move.dmgValues[1]*skillLevel)
-    baseMoveValues["dazeValue"] = move.dazeValues[0] + (move.dazeValues[1]*skillLevel)
-    baseMoveValues["anomBuildup"] = move.anomBuildupValues[0]
+    baseMoveValues["dmgValue"] = moveData.dmgValues[0] + (moveData.dmgValues[1]*skillLevel)
+    baseMoveValues["dazeValue"] = moveData.dazeValues[0] + (moveData.dazeValues[1]*skillLevel)
+    baseMoveValues["anomBuildup"] = moveData.anomBuildupValues[0]
 
     return baseMoveValues;
 }
@@ -80,13 +79,20 @@ function additionalElementalDmgCalc(moveId,selectedChar,coreSkillLevel,mindscape
     return(additionalElementalDmg);
 }
 
+// TODO: 
+// ADD ATK TO CALC
+// ADD DAZE AND ANOMALY BUILDUP
+
 function basicAttackCalc (char, coreSkillLevel, mindscapeLevel, skillLevel){
     let basicAtk = [];
-    for (let index = 0; index < char.charInfo.moveList.basicAttack.length; index++) {
-        basicAtk[index] = {
-            "id" : index+1,
-            "dmgValue" : baseMoveValueCalc(index+1, char, skillLevel)["dmgValue"] * (1 + additionalDmgCalc(index+1,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(index+1,char,coreSkillLevel,mindscapeLevel))
-        }
+    for (const moveId of char.charInfo.moveList.basicAttack) {
+        let moveData = char.moveValues?.find((move) => move.id === moveId);
+        basicAtk.push ({
+            "name" : moveData.name,
+            "family" : moveData.family,
+            "id" : moveId,
+            "dmgValue" : baseMoveValueCalc(moveData, char, skillLevel)["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel))
+        })
     }
     return basicAtk
 

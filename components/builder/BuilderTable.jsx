@@ -4,7 +4,7 @@ const renderRow = (label, value) => {
     return (
         <div className="character-stats-text px-5">
             <p>{label}</p>
-            <p>{value}</p>
+            <p>{Math.round(value*1000)/1000}</p>
         </div>
     );
 };
