@@ -13,20 +13,17 @@ function groupByFamily(selectedCharMove) {
         if(!groupedMoves[family]) {
             groupedMoves[family] = [];
         }
-        groupedMoves[family].push(selectedCharMove[index]);
+        groupedMoves[family].push({label: selectedCharMove[index].name + " Dmg", value: selectedCharMove[index].dmgValue});
+        groupedMoves[family].push({label: selectedCharMove[index].name + " Daze", value: selectedCharMove[index].dazeValue});
+        groupedMoves[family].push({label: selectedCharMove[index].name + " Anomaly Buildup", value: selectedCharMove[index].anomBuildup});
     }
     return groupedMoves;
 }
 
 const CardMoves = (props) => {
-    const { selectedCharMove, title} = props;
+    const { selectedCharMove, title } = props;
     
     let groupedMoves = groupByFamily(selectedCharMove)
-
-    // TODO: ADD DAZE AND ANOM VALUES
-    for (let family in groupedMoves){
-        groupedMoves[family] = groupedMoves[family].map((move) => ({label: move.name, value: move.dmgValue}));
-    }
 
     return (
         <Card>
@@ -36,7 +33,7 @@ const CardMoves = (props) => {
             <CardContent>
                 {Object.keys(groupedMoves).map((family) => (
                     <div key={family} className="flex flex-col justify-between md:flex-row">
-                        <BuilderTable title={family} data={groupedMoves[family]} />
+                        <BuilderTable title={family} data={groupedMoves[family]} rowsPerLine={3} />
                     </div>
                 ))}
             </CardContent>

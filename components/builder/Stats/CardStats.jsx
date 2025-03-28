@@ -42,8 +42,8 @@ const CardStats = (props) => {
             </CardHeader>
             <CardContent>
                 <div className="flex flex-col justify-between md:flex-row">
-                    <BuilderTable title="Base Stats" data={statsDataBase} />
-                    <BuilderTable title="Combat Stats" data={statsDataCombat} />
+                    <BuilderTable title="Base Stats" data={statsDataBase} rowsPerLine={2}/>
+                    <BuilderTable title="Combat Stats" data={statsDataCombat} rowsPerLine={2}/>
                 </div>
             </CardContent>
         </Card>

@@ -87,11 +87,14 @@ function basicAttackCalc (char, coreSkillLevel, mindscapeLevel, skillLevel){
     let basicAtk = [];
     for (const moveId of char.charInfo.moveList.basicAttack) {
         let moveData = char.moveValues?.find((move) => move.id === moveId);
+        let baseMoveValues = baseMoveValueCalc(moveData, char, skillLevel)
         basicAtk.push ({
             "name" : moveData.name,
             "family" : moveData.family,
             "id" : moveId,
-            "dmgValue" : baseMoveValueCalc(moveData, char, skillLevel)["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel))
+            "dazeValue" : baseMoveValues["dazeValue"],
+            "anomBuildup" : baseMoveValues["anomBuildup"],
+            "dmgValue" : baseMoveValues["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel))
         })
     }
     return basicAtk
