@@ -17,7 +17,7 @@ const BuilderTable = (props) => {
             <p className="text-3xl self-center">{title}</p>
             <div className='flex flex-wrap w-full'>
                 {data.map((row, index) => (
-                    <div className={"flex justify-between flex-col w-full xl:w-1/" + rowsPerLine + " xl:pr-2"} key={index}>
+                    <div style={{width: "calc(1/"+ rowsPerLine +" * 100%)"}} className={"flex justify-between flex-col xl:pr-2"} key={index}>
                         {renderRow(row.label, row.value)}
                     </div>
                 ))}
