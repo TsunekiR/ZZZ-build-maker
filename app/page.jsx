@@ -77,6 +77,8 @@ export default function Home() {
                 </Card>
                 <CardStats selectedCharStdStats={selectedCharStdStats} />
                 <CardMoves selectedCharMove={selectedCharMoveValues["basicAttack"]} title="Basic Attack" />
+
+                <div className="h-2" />
             </Suspense>
         )}
 

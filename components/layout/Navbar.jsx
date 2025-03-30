@@ -27,7 +27,7 @@ const Navbar = () => {
     // TODO: improve performance when changing pages
     // TODO: highlight current page
     return (
-        <header className="flex relative z-50 h-20 w-full shrink-0 items-center px-4 md:px-6 bg-boulder-900 backdrop-blur-md">
+        <header className="flex sticky top-0 z-40 h-20 w-full shrink-0 items-center px-4 md:px-6 bg-boulder-900 backdrop-blur-md">
             <Sheet>
                 <SheetTrigger asChild>
                     <Button variant="outline" size="icon" className="lg:hidden">

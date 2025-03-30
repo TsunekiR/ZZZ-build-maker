@@ -34,7 +34,7 @@ return (
 
             <Suspense fallback={<div>Loading...</div>}>
                 <div className="container mx-auto px-4 md:px-6 pt-5">
-                    <div className="relative z-50 w-full flex flex-col overflow-y-hidden">
+                    <div className="relative z-30 w-full flex flex-col overflow-y-hidden">
                         {children}
                     </div>
                 </div>
