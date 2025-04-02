@@ -5,6 +5,7 @@ import {
     CardHeader,
 } from "@/components/ui/card";
 import BuilderTable from '../BuilderTable';
+import LevelSelectSlider from "@/components/builder/Moves/LevelSelectSlider"
 
 function groupByFamily(selectedCharMove) {
     let groupedMoves = {};
@@ -20,6 +21,12 @@ function groupByFamily(selectedCharMove) {
     return groupedMoves;
 }
 
+const renderSlider = (skill) => {
+    return(
+        <LevelSelectSlider skill={skill}/>
+    )
+}
+
 const CardMoves = (props) => {
     const { selectedCharMove, title } = props;
     
@@ -27,7 +34,7 @@ const CardMoves = (props) => {
 
     return (
         <Card>
-            <CardHeader>
+            <CardHeader extraComponents={renderSlider("Basic Attack")}>
                 {title}
             </CardHeader>
             <CardContent>

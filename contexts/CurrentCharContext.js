@@ -40,6 +40,8 @@ const initialCurrentChar = {
     charName: "",
     coreSkillLevel: 6,
     mindscapeLevel: 0,
+    basicAttackLevel: 12,
+    dashLevel: 12,
 };
 
 export function useCurrentChar() {

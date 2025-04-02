@@ -16,16 +16,25 @@ const Card = React.forwardRef(({ className, ...props }, ref) => (
 Card.displayName = "Card"
 
 const CardHeader = React.forwardRef(({ className, ...props }, ref) => (
-    <div
-        ref={ref}
-        className={cn("flex flex-row justify-between space-y-1.5 p-6 bg-[#000000] rounded-t-3xl border-b-2 text-2xl", className)}
-        {...props}>
-            <div className="flex flex-row">
-                {props.children}
-                <Image className="ml-3" src="/cardHeaderPre.png" alt="header" width={48} height={30}/>
+    <>
+        <div
+            ref={ref}
+            className={cn("flex flex-col space-y-1.5 p-6 bg-[#000000] rounded-t-3xl border-b-2 text-2xl", className)}
+            {...props}>
+            <div className="flex flex-row w-full  justify-between">
+              <div className="flex flex-row">
+                    {props.children}
+                    <Image className="ml-3" src="/cardHeaderPre.png" alt="header" width={48} height={30}/>
+              </div>
+              <Image src="/cardHeader.png" alt="bangboo" width={30} height={30}/>
             </div>
-        <Image src="/cardHeader.png" alt="bangboo" width={30} height={30}/>
-    </div>	
+            {props.extraComponents && (
+              <div className="flex flex-row gap-2 w-full md:w-1/3 justify-end">
+                  {props.extraComponents}
+              </div>
+            )}
+        </div>	
+    </>
 ))
 CardHeader.displayName = "CardHeader"
 
