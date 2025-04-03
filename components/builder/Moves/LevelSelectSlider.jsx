@@ -1,7 +1,7 @@
 import { Slider } from "@/components/ui/slider"
 
 import React from 'react';
-import { CurrentCharProvider, useCurrentChar, useCurrentCharDispatch } from "@/contexts/CurrentCharContext";
+import { useCurrentChar, useCurrentCharDispatch } from "@/contexts/CurrentCharContext";
 
 const LevelSelectSlider = (props) => {
     const skill = props.skill

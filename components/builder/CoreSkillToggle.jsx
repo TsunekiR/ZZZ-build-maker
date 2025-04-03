@@ -16,7 +16,7 @@ const CoreSkillToggle = (props) => {
     };
 
     return (
-        <div className="flex flex-col gap-1 h-20 xl:h-40 flex-wrap">
+        <div className="flex flex-col gap-1 h-20 xl:h-32 pt-1 xl:pt-2 flex-wrap">
             {rows.map((row, i) => (
                 <div key={i} onClick={() => {handleToggle(i + 1)}} className={'core-skill-toggle core-skill-toggle-xl ' + ((i < propCoreSkillLevel)? 'active' : '')}>
                     <p>{row}</p>

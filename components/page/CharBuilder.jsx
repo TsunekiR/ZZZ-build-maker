@@ -11,6 +11,7 @@ import CoreSkillToggle from "@/components/builder/CoreSkillToggle";
 import { Badge } from "@/components/ui/badge";
 import CardStats from "@/components/builder/Stats/CardStats";
 import CardMoves from "@/components/builder/Moves/CardMoves";
+import MindscapeSelect from "@/components/builder/MindscapeSelect";
 import { CurrentCharProvider, useCurrentChar, useCurrentCharDispatch } from "@/contexts/CurrentCharContext";
 
 export default function CharBuilder() {
@@ -55,7 +56,7 @@ export default function CharBuilder() {
                                     <img className="object-contain drop-shadow-2xl" alt="test" src={getCharHalfBodyImg(currentChar.charName)}/>
                                 </div>
                                 <div className="mt-5 md:w-1/2">
-                                    <p className="xl:text-8xl text-6xl text-nowrap">{selectedChar.charInfo.charName}</p>
+                                    <p className="xl:text-8xl md:text-6xl text-5xl xl:text-nowrap">{selectedChar.charInfo.charName}</p>
                                     <div className="flex flex-row md:flex-col space-x-1 md:space-x-0 py-1">
                                         <div className="flex flex-row py-1">
                                             <p className="hidden md:block xl:text-5xl text-3xl font-light text-muted-foreground self-center"> {selectedChar.charInfo.charFaction}</p>
@@ -72,8 +73,9 @@ export default function CharBuilder() {
                                             </Badge>
                                         </div>
                                     </div>
-                                    <div className="flex flex-row py-1">
+                                    <div className="flex flex-row py-1 gap-4">
                                         <CoreSkillToggle coreSkillLevel={currentChar.coreSkillLevel} onChange={handleChangeCoreSkillLevel}/>
+                                        <MindscapeSelect/>
                                     </div>
                                 </div>
                             </div>
