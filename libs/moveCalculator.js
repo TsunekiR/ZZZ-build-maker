@@ -1,7 +1,7 @@
 function baseMoveValueCalc (moveData, char, skillLevel) {
     let baseMoveValues = {}
-    baseMoveValues["dmgValue"] = moveData.dmgValues[0] + (moveData.dmgValues[1]*skillLevel)
-    baseMoveValues["dazeValue"] = moveData.dazeValues[0] + (moveData.dazeValues[1]*skillLevel)
+    baseMoveValues["dmgValue"] = (moveData.dmgValues[0] + (moveData.dmgValues[1]*(skillLevel-1)))/100
+    baseMoveValues["dazeValue"] = (moveData.dazeValues[0] + (moveData.dazeValues[1]*(skillLevel-1))/100)
     baseMoveValues["anomBuildup"] = moveData.anomBuildupValues[0]
 
     return baseMoveValues;
