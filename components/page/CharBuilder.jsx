@@ -4,6 +4,7 @@ import React, { Suspense, useEffect, useMemo } from "react";
 import CharSelect from "@/components/builder/CharSelect";
 import { useChars } from "@/hooks/useChars";
 import { stdStatsCalculator } from "@/libs/stdStatsCalculator";
+import { combatStatsCalculator } from "@/libs/combatStatsCalculator";
 import { moveValueCalc } from "@/libs/moveCalculator";
 import { getCharHalfBodyImg, getFactionImg, getAttributeImg, getTypeImg } from "@/lib/utils"
 import { Card, CardContent } from "@/components/ui/card";
@@ -24,10 +25,9 @@ export default function CharBuilder() {
     const selectedChar = chars?.find((char) => char.charInfo.charName === currentChar?.charName);
 
     let skillLevel = 1;
-    let selectedCharMoveValues = selectedChar? moveValueCalc(selectedChar, currentChar): null;
     let selectedCharStdStats = selectedChar? stdStatsCalculator(selectedChar, currentChar.coreSkillLevel): null;
-    console.log(selectedCharStdStats);
-    console.log(selectedCharMoveValues);
+    let selectedCharCombatStats = selectedCharStdStats? combatStatsCalculator(selectedCharStdStats): null;
+    let selectedCharMoveValues = selectedChar? moveValueCalc(selectedChar, currentChar): null;
 
     // Handlers
     function handleCharSelect(name) {
@@ -81,7 +81,7 @@ export default function CharBuilder() {
                             </div>
                         </CardContent>
                     </Card>
-                    <CardStats selectedCharStdStats={selectedCharStdStats} />
+                    <CardStats selectedCharStdStats={selectedCharStdStats} selectedCharCombatStats={selectedCharCombatStats} />
                     <CardMoves selectedCharMove={selectedCharMoveValues["basicAttack"]} title="Basic Attack" />
 
                     <div className="h-2" />

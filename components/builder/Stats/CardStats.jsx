@@ -7,7 +7,7 @@ import {
 import BuilderTable from '../BuilderTable';
 
 const CardStats = (props) => {
-    const { selectedCharStdStats } = props;
+    const { selectedCharStdStats, selectedCharCombatStats } = props;
 
     const statsDataBase = [
         { label: "HP", value: selectedCharStdStats["hp"] },
@@ -23,16 +23,16 @@ const CardStats = (props) => {
     ];
 
     const statsDataCombat = [
-        { label: "HP", value: 100 },
-        { label: "ATK", value: 100 },
-        { label: "DEF", value: 100 },
-        { label: "Impact", value: 100 },
-        { label: "CRIT Rate", value: 100 },
-        { label: "CRIT DMG", value: 100 },
-        { label: "Anomaly Mastery", value: 100 },
-        { label: "Anomaly Proficiency", value: 100 },
-        { label: "Pen Ratio", value: 100 },
-        { label: "Energy Regen", value: 100 },
+        { label: "HP", value: selectedCharCombatStats["hp"] },
+        { label: "ATK", value: selectedCharCombatStats["atk"] },
+        { label: "DEF", value: selectedCharCombatStats["def"] },
+        { label: "Impact", value: selectedCharCombatStats["impact"] },
+        { label: "CRIT Rate", value: selectedCharCombatStats["critRate"] },
+        { label: "CRIT DMG", value: selectedCharCombatStats["critDmg"] },
+        { label: "Anomaly Mastery", value: selectedCharCombatStats["anomalyMastery"] },
+        { label: "Anomaly Proficiency", value: selectedCharCombatStats["anomalyProficiency"] },
+        { label: "Pen Ratio", value: selectedCharCombatStats["penRatio"] },
+        { label: "Energy Regen", value: selectedCharCombatStats["energyRegen"] },
     ];
 
     return (
