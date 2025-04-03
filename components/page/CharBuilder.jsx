@@ -27,7 +27,7 @@ export default function CharBuilder() {
     let skillLevel = 1;
     let selectedCharStdStats = selectedChar? stdStatsCalculator(selectedChar, currentChar.coreSkillLevel): null;
     let selectedCharCombatStats = selectedCharStdStats? combatStatsCalculator(selectedCharStdStats): null;
-    let selectedCharMoveValues = selectedChar? moveValueCalc(selectedChar, currentChar): null;
+    let selectedCharMoveValues = selectedChar? moveValueCalc(selectedChar, currentChar, selectedCharCombatStats): null;
 
     // Handlers
     function handleCharSelect(name) {
