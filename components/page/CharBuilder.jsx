@@ -23,7 +23,7 @@ export default function CharBuilder() {
     const selectedChar = chars?.find((char) => char.charInfo.charName === currentChar?.charName);
 
     let skillLevel = 1;
-    let selectedCharMoveValues = selectedChar? moveValueCalc(selectedChar, currentChar.coreSkillLevel, currentChar.mindscapeLevel, currentChar.basicAttackLevel): null;
+    let selectedCharMoveValues = selectedChar? moveValueCalc(selectedChar, currentChar): null;
     let selectedCharStdStats = selectedChar? stdStatsCalculator(selectedChar, currentChar.coreSkillLevel): null;
     console.log(selectedCharStdStats);
     console.log(selectedCharMoveValues);

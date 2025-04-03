@@ -29,6 +29,15 @@ function currentCharReducer(currentChar, action) {
             [action.name]: action.value,
         };
     }
+    case 'updateSkill': {
+        return {
+            ...currentChar,
+            "skillLevels": {
+                ...currentChar.skillLevels,
+                [action.name]: action.value
+            },
+        };
+    }
     default: {
       throw Error('Unknown action: ' + action.type);
     }
@@ -40,8 +49,10 @@ const initialCurrentChar = {
     charName: "",
     coreSkillLevel: 6,
     mindscapeLevel: 0,
-    basicAttackLevel: 12,
-    dashLevel: 12,
+    skillLevels: {
+        basicAttackLevel: 12,
+        dashLevel: 12,
+    },
 };
 
 export function useCurrentChar() {
