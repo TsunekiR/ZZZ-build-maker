@@ -1,10 +1,17 @@
+import { Triangle } from 'lucide-react';
+import { ChevronUp } from 'lucide-react';
 import React from 'react';
 
 const renderRow = (label, value) => {
     return (
         <div className="character-stats-text px-5">
             <p>{label}</p>
-            <p>{Math.round(value*1000)/1000}</p>
+            <div key={value} className='flex flex-row gap-1 pulse-twice'>
+                <p>{Math.round(value*1000)/1000}</p>
+                {/* TODO: Compare with old value */}
+                {/* <Triangle width={12} className='text-green-600 fill-green-600 fade-out absolute opacity-0'/> */}
+                {/* <Triangle width={12} className='rotate-180 text-red-600 fill-red-600 fade-out absolute opacity-0'/> */}
+            </div>
         </div>
     );
 };

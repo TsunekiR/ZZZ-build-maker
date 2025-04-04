@@ -1,6 +1,6 @@
 "use client"; // This is a client-side only module
 
-import React, { Suspense, useEffect, useMemo } from "react";
+import React, { Suspense, useMemo } from "react";
 import CharSelect from "@/components/builder/CharSelect";
 import { useChars } from "@/hooks/useChars";
 import { stdStatsCalculator } from "@/libs/stdStatsCalculator";
@@ -13,7 +13,7 @@ import { Badge } from "@/components/ui/badge";
 import CardStats from "@/components/builder/Stats/CardStats";
 import CardMoves from "@/components/builder/Moves/CardMoves";
 import MindscapeSelect from "@/components/builder/MindscapeSelect";
-import { CurrentCharProvider, useCurrentChar, useCurrentCharDispatch } from "@/contexts/CurrentCharContext";
+import { useCurrentChar, useCurrentCharDispatch } from "@/contexts/CurrentCharContext";
 
 export default function CharBuilder() {
     // State
@@ -24,10 +24,18 @@ export default function CharBuilder() {
     // Derived state
     const selectedChar = chars?.find((char) => char.charInfo.charName === currentChar?.charName);
 
-    let skillLevel = 1;
-    let selectedCharStdStats = selectedChar? stdStatsCalculator(selectedChar, currentChar.coreSkillLevel): null;
-    let selectedCharCombatStats = selectedCharStdStats? combatStatsCalculator(selectedCharStdStats): null;
-    let selectedCharMoveValues = selectedChar? moveValueCalc(selectedChar, currentChar, selectedCharCombatStats): null;
+    // Cached values
+    let selectedCharStdStats = useMemo(() => {
+        return selectedChar? stdStatsCalculator(selectedChar, currentChar.coreSkillLevel): null;
+    }, [currentChar]);
+
+    let selectedCharCombatStats = useMemo(() => {
+        return selectedCharStdStats? combatStatsCalculator(selectedCharStdStats): null;
+    }, [selectedCharStdStats]);
+    
+    let selectedCharMoveValues = useMemo(() => {
+        return selectedChar? moveValueCalc(selectedChar, currentChar, selectedCharCombatStats): null;
+    }, [currentChar]);
 
     // Handlers
     function handleCharSelect(name) {
@@ -75,7 +83,7 @@ export default function CharBuilder() {
                                     </div>
                                     <div className="flex flex-row py-1 gap-4">
                                         <CoreSkillToggle coreSkillLevel={currentChar.coreSkillLevel} onChange={handleChangeCoreSkillLevel}/>
-                                        <MindscapeSelect/>
+                                        <MindscapeSelect />
                                     </div>
                                 </div>
                             </div>

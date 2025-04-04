@@ -143,4 +143,38 @@
             transform: translate(-50%)
         }
     }
+
+    @keyframes pulse_twice {
+        0% {
+            opacity: 0;
+        }
+        33% {
+            opacity: 1;
+        }
+        66% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .pulse-twice {
+        animation: pulse_twice 1s linear;
+    }
+
+    @keyframes disappear {
+        0% {
+            position:relative;
+            opacity: 1;
+        }
+        100% {
+            position:relative;
+            opacity: 0;
+        }
+    }
+
+    .fade-out {
+        animation: disappear 5s linear;
+    }
 }
