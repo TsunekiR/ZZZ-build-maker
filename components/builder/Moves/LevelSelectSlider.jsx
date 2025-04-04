@@ -29,7 +29,7 @@ const LevelSelectSlider = (props) => {
     
     return (
         <div className="flex w-full gap-2">
-            <Slider defaultValue={[12]} max={16} min={1} step={1} onValueChange={(i) => {handleChange(skillNameParam, i)}} className="w-full"/>
+            <Slider defaultValue={[skillLevel]} max={16} min={1} step={1} onValueChange={(i) => {handleChange(skillNameParam, i)}} className="w-full"/>
             <p>{skillLevel}</p>
         </div>
     );

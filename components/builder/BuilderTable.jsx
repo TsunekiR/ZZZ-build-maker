@@ -1,16 +1,35 @@
 import { Triangle } from 'lucide-react';
 import { ChevronUp } from 'lucide-react';
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const renderRow = (label, value) => {
+    const firstRender = useRef(true);
+    const previousValue = useRef();
+    const delta = value - previousValue.current;
+
+    useEffect(() => {
+        if (firstRender.current) {
+            previousValue.current = value;
+            firstRender.current = false;
+            return;
+        }
+
+        previousValue.current = value;
+        return;
+    });
+
     return (
         <div className="character-stats-text px-5">
             <p>{label}</p>
             <div key={value} className='flex flex-row gap-1 pulse-twice'>
                 <p>{Math.round(value*1000)/1000}</p>
-                {/* TODO: Compare with old value */}
-                {/* <Triangle width={12} className='text-green-600 fill-green-600 fade-out absolute opacity-0'/> */}
-                {/* <Triangle width={12} className='rotate-180 text-red-600 fill-red-600 fade-out absolute opacity-0'/> */}
+                {(delta > 0) && (
+                    <Triangle width={12} className='text-green-600 fill-green-600 fade-out absolute opacity-0'/>
+                )
+                }
+                {(delta < 0) && (
+                    <Triangle width={12} className='rotate-180 text-red-600 fill-red-600 fade-out absolute opacity-0'/>
+                )}
             </div>
         </div>
     );
