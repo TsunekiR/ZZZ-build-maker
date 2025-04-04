@@ -34,7 +34,7 @@ const CardMoves = (props) => {
 
     return (
         <Card>
-            <CardHeader extraComponents={renderSlider("Basic Attack")}>
+            <CardHeader extracomponents={renderSlider("Basic Attack")}>
                 {title}
             </CardHeader>
             <CardContent>

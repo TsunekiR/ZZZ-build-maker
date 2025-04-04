@@ -28,9 +28,9 @@ const CardHeader = React.forwardRef(({ className, ...props }, ref) => (
               </div>
               <Image src="/cardHeader.png" alt="bangboo" width={30} height={30}/>
             </div>
-            {props.extraComponents && (
+            {props.extracomponents && (
               <div className="flex flex-row gap-2 w-full md:w-1/3 justify-end">
-                  {props.extraComponents}
+                  {props.extracomponents}
               </div>
             )}
         </div>	
