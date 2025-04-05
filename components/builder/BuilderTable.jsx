@@ -1,6 +1,7 @@
 import { Triangle } from 'lucide-react';
 import { ChevronUp } from 'lucide-react';
 import React, { useEffect, useRef, useState } from 'react';
+import { Accordion, AccordionContent, AccordionTrigger, AccordionItem } from '../ui/accordion';
 
 const renderRow = (label, value) => {
     const previousValue = useRef();
@@ -53,14 +54,22 @@ const BuilderTable = (props) => {
 
     return (
         <div className="p-2 flex flex-row flex-wrap xl:pr-0 w-full">
-            <p className="text-3xl self-center">{title}</p>
-            <div className='flex flex-wrap w-full'>
-                {data.map((row, index) => (
-                    <div className={"flex justify-between flex-col xl:pr-2 w-full " + wRow} key={index}>
-                        {renderRow(row.label, row.value)}
-                    </div>
-                ))}
-            </div>
+            <Accordion type="single" collapsible className='w-full'>
+            <AccordionItem value="item-1">
+            <AccordionTrigger className="w-full">
+                <p className="text-3xl self-center">{title}</p>
+            </AccordionTrigger>
+            <AccordionContent>
+                <div className='flex flex-wrap w-full'>
+                    {data.map((row, index) => (
+                        <div className={"flex justify-between flex-col xl:pr-2 w-full " + wRow} key={index}>
+                            {renderRow(row.label, row.value)}
+                        </div>
+                    ))}
+                </div>
+            </AccordionContent>
+            </AccordionItem>
+            </Accordion>
         </div>        
     );
 };
