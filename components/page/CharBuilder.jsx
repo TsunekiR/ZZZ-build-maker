@@ -91,7 +91,10 @@ export default function CharBuilder() {
                     </Card>
                     <CardStats selectedCharStdStats={selectedCharStdStats} selectedCharCombatStats={selectedCharCombatStats} />
                     <CardMoves selectedCharMove={selectedCharMoveValues["basicAttack"]} title="Basic Attack" />
-
+                    <CardMoves selectedCharMove={selectedCharMoveValues["dodge"]} title="Dodge" />
+                    <CardMoves selectedCharMove={selectedCharMoveValues["assist"]} title="Assist" />
+                    <CardMoves selectedCharMove={selectedCharMoveValues["specialAttack"]} title="Special Attack" />
+                    <CardMoves selectedCharMove={selectedCharMoveValues["chainAttack"]} title="Chain Attack" />
                     <div className="h-2" />
                 </Suspense>
             )}
