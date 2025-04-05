@@ -18,30 +18,23 @@ const renderRow = (label, value) => {
         return;
     });
 
-    console.log(delta)
+    console.log(delta === NaN)
     return (
         <div className="character-stats-text px-5">
             <p>{label}</p>
-            {( (delta === 0 || delta === NaN) ?  
+            {( (delta > 0 || delta < 0) ?  
+                (<div key={value} className='flex flex-row gap-1 pulse-twice'>
+                    {(delta > 0) && (
+                        <Triangle width={12} className='text-green-600 fill-green-600 fade-out absolute opacity-0'/>
+                    )
+                    }
+                    {(delta < 0) && (
+                        <Triangle width={12} className='rotate-180 text-red-600 fill-red-600 fade-out absolute opacity-0'/>
+                    )}
+                    <p>{Math.round(value*1000)/1000}</p>
+                </div>) :
                 (<div key={value} className='flex flex-row gap-1'>
                     <p>{Math.round(value*1000)/1000}</p>
-                    {(delta > 0) && (
-                        <Triangle width={12} className='text-green-600 fill-green-600 fade-out absolute opacity-0'/>
-                    )
-                    }
-                    {(delta < 0) && (
-                        <Triangle width={12} className='rotate-180 text-red-600 fill-red-600 fade-out absolute opacity-0'/>
-                    )}
-                </div>) :
-                (<div key={value} className='flex flex-row gap-1 pulse-twice'>
-                    <p>{Math.round(value*1000)/1000}</p>
-                    {(delta > 0) && (
-                        <Triangle width={12} className='text-green-600 fill-green-600 fade-out absolute opacity-0'/>
-                    )
-                    }
-                    {(delta < 0) && (
-                        <Triangle width={12} className='rotate-180 text-red-600 fill-red-600 fade-out absolute opacity-0'/>
-                    )}
                 </div>)
             )}
         </div>
