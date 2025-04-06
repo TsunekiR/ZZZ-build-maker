@@ -17,10 +17,10 @@ const renderRow = (label, value) => {
             {( (delta > 0 || delta < 0) ?  
                 (<div key={value} className='flex flex-row gap-1 pulse-twice'>
                     {(delta > 0) && (
-                        <Triangle width={12} className='text-green-600 fill-green-600 fade-out absolute opacity-0'/>
+                        <Triangle width={10} height={20} className='text-green-600 fill-green-600 fade-out absolute opacity-0'/>
                     )}
                     {(delta < 0) && (
-                        <Triangle width={12} className='rotate-180 text-red-600 fill-red-600 fade-out absolute opacity-0'/>
+                        <Triangle width={10} height={20} className='rotate-180 text-red-600 fill-red-600 fade-out absolute opacity-0'/>
                     )}
                     <p>{Math.round(value*1000)/1000}</p>
                 </div>) :

@@ -168,6 +168,10 @@
             position:relative;
             opacity: 1;
         }
+        90% {
+            position:relative;
+            opacity: 1;
+        }
         100% {
             position:relative;
             opacity: 0;
@@ -175,6 +179,6 @@
     }
 
     .fade-out {
-        animation: disappear 5s linear;
+        animation: disappear 5s ease-out;
     }
 }
