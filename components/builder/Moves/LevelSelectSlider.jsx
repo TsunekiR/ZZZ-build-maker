@@ -18,32 +18,29 @@ const LevelSelectSlider = (props) => {
         case "Basic Attack" :
             skillLevel = currentChar.skillLevels["basicAttackLevel"];
             skillNameParam = "basicAttackLevel";
-            console.log(skill)
             break
         case "Dodge" :
-            skillLevel = currentChar.skillLevels["dodge"];
+            skillLevel = currentChar.skillLevels["dodgeLevel"];
             skillNameParam = "dodgeLevel";
-            console.log(skill)
             break;
         case "Assist" :
-            skillLevel = currentChar.skillLevels["assist"];
+            skillLevel = currentChar.skillLevels["assistLevel"];
             skillNameParam = "assistLevel";
-            console.log(skill)
             break;
         case "Special Attack" :
-            skillLevel = currentChar.skillLevels["specialAttack"];
+            skillLevel = currentChar.skillLevels["specialAttackLevel"];
             skillNameParam = "specialAttackLevel";
-            console.log(skill)
             break;
         case "Chain Attack" :
-            skillLevel = currentChar.skillLevels["chainAttack"];
+            skillLevel = currentChar.skillLevels["chainAttackLevel"];
             skillNameParam = "chainAttackLevel";
-            console.log(skill)
             break;
         default:
             break;
     }
     
+    console.log(skillNameParam + ': ' + skillLevel )
+
     return (
         <div className="flex w-full gap-2">
             <Slider defaultValue={[skillLevel]} max={16} min={1} step={1} onValueChange={(i) => {handleChange(skillNameParam, i)}} className="w-full"/>

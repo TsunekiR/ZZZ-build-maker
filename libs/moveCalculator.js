@@ -214,10 +214,10 @@ function chainAttackCalc (char, coreSkillLevel, mindscapeLevel, skillLevel, stat
 export function moveValueCalc (char, charContext, stats){
     let moveValues = {}
     moveValues["basicAttack"] = basicAttackCalc(char, charContext.coreSkillLevel, charContext.mindscapeLevel, charContext.skillLevels["basicAttackLevel"], stats);
-    moveValues["dodge"] = dodgeCalc(char, charContext.coreSkillLevel, charContext.mindscapeLevel, charContext.skillLevels["basicAttackLevel"], stats);
-    moveValues["assist"] = assistCalc(char, charContext.coreSkillLevel, charContext.mindscapeLevel, charContext.skillLevels["basicAttackLevel"], stats)
-    moveValues["specialAttack"] = specialAttackCalc(char, charContext.coreSkillLevel, charContext.mindscapeLevel, charContext.skillLevels["basicAttackLevel"], stats)
-    moveValues["chainAttack"] = chainAttackCalc(char, charContext.coreSkillLevel, charContext.mindscapeLevel, charContext.skillLevels["basicAttackLevel"], stats)
+    moveValues["dodge"] = dodgeCalc(char, charContext.coreSkillLevel, charContext.mindscapeLevel, charContext.skillLevels["dodgeLevel"], stats);
+    moveValues["assist"] = assistCalc(char, charContext.coreSkillLevel, charContext.mindscapeLevel, charContext.skillLevels["assistLevel"], stats)
+    moveValues["specialAttack"] = specialAttackCalc(char, charContext.coreSkillLevel, charContext.mindscapeLevel, charContext.skillLevels["specialAttackLevel"], stats)
+    moveValues["chainAttack"] = chainAttackCalc(char, charContext.coreSkillLevel, charContext.mindscapeLevel, charContext.skillLevels["chainAttackLevel"], stats)
 
     return moveValues
 }
