@@ -51,7 +51,10 @@ const initialCurrentChar = {
     mindscapeLevel: 0,
     skillLevels: {
         basicAttackLevel: 12,
-        dashLevel: 12,
+        dodgeLevel: 12,
+        assistLevel: 12,
+        specialAttackLevel: 12,
+        chainAttackLevel: 12
     },
 };
 

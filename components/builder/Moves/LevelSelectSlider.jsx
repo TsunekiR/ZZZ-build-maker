@@ -18,10 +18,27 @@ const LevelSelectSlider = (props) => {
         case "Basic Attack" :
             skillLevel = currentChar.skillLevels["basicAttackLevel"];
             skillNameParam = "basicAttackLevel";
+            console.log(skill)
             break
-        case "Dash" :
-            skillLevel = currentChar.skillLevels["dashLevel"];
-            skillNameParam = "dashLevel";
+        case "Dodge" :
+            skillLevel = currentChar.skillLevels["dodge"];
+            skillNameParam = "dodgeLevel";
+            console.log(skill)
+            break;
+        case "Assist" :
+            skillLevel = currentChar.skillLevels["assist"];
+            skillNameParam = "assistLevel";
+            console.log(skill)
+            break;
+        case "Special Attack" :
+            skillLevel = currentChar.skillLevels["specialAttack"];
+            skillNameParam = "specialAttackLevel";
+            console.log(skill)
+            break;
+        case "Chain Attack" :
+            skillLevel = currentChar.skillLevels["chainAttack"];
+            skillNameParam = "chainAttackLevel";
+            console.log(skill)
             break;
         default:
             break;
