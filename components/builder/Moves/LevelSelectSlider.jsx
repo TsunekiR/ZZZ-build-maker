@@ -38,8 +38,6 @@ const LevelSelectSlider = (props) => {
         default:
             break;
     }
-    
-    console.log(skillNameParam + ': ' + skillLevel )
 
     return (
         <div className="flex w-full gap-2">

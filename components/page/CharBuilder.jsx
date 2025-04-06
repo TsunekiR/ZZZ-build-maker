@@ -25,6 +25,7 @@ export default function CharBuilder() {
     const selectedChar = chars?.find((char) => char.charInfo.charName === currentChar?.charName);
 
     // Cached values
+    console.time("Calculation Time");
     let selectedCharStdStats = useMemo(() => {
         return selectedChar? stdStatsCalculator(selectedChar, currentChar.coreSkillLevel): null;
     }, [currentChar]);
@@ -36,6 +37,7 @@ export default function CharBuilder() {
     let selectedCharMoveValues = useMemo(() => {
         return selectedChar? moveValueCalc(selectedChar, currentChar, selectedCharCombatStats): null;
     }, [currentChar]);
+    console.timeEnd("Calculation Time");
 
     // Handlers
     function handleCharSelect(name) {
