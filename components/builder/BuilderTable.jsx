@@ -1,6 +1,5 @@
 import { Triangle } from 'lucide-react';
-import { ChevronUp } from 'lucide-react';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Accordion, AccordionContent, AccordionTrigger, AccordionItem } from '../ui/accordion';
 
 const renderRow = (label, value) => {

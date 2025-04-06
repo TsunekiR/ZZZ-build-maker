@@ -6,7 +6,6 @@ import {
 } from "@/components/ui/card";
 import BuilderTable from '../BuilderTable';
 import LevelSelectSlider from "@/components/builder/Moves/LevelSelectSlider"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, } from "@/components/ui/accordion"
 
 function groupByFamily(selectedCharMove) {
     let groupedMoves = {};
