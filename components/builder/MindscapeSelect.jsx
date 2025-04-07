@@ -13,6 +13,13 @@ const CoreSkillToggle = () => {
             document.getElementById(currentChar.mindscapeLevel).scrollIntoView({block: 'nearest', inline: 'start' });
         }, []);
 
+    useEffect(() => {
+        function handleResize() {
+            document.getElementById(currentChar.mindscapeLevel)&&document.getElementById(currentChar.mindscapeLevel).scrollIntoView({block: 'nearest', inline: 'start' });
+        }
+        window.addEventListener('resize', handleResize)
+    })
+
     const handleIncrease = () => {
         if (currentChar.mindscapeLevel < 6){
             currentCharDispatch({ type: 'update', name: 'mindscapeLevel', value: currentChar.mindscapeLevel + 1 });
@@ -32,7 +39,7 @@ const CoreSkillToggle = () => {
                 <Button variant="outline" size="icon" onClick={handleDecrease} className="size-8 xl:size-10">
                     <Minus className="w-4 h-4"/>
                 </Button>
-                    <div className="flex flex-row flex-nowrap text-center gap-2 w-14 xl:w-24 overflow-hidden">
+                    <div className="flex flex-row flex-nowrap text-center gap-2 w-[3.6rem] xl:w-24 overflow-hidden">
                         <p id={0} className="text-4xl xl:text-6xl font-bold">M0</p>
                         <p id={1} className="text-4xl xl:text-6xl font-bold">M1</p>
                         <p id={2} className="text-4xl xl:text-6xl font-bold">M2</p>
