@@ -1,27 +1,36 @@
 /* CoreSkillToggle.css */
 
+:root {
+    --core-skill-toggle-color: #ffffff;
+}
+
 .core-skill-toggle {
     @apply p-1 pl-2 pr-3 border-2 rounded-full cursor-pointer;
 }
 
 .core-skill-toggle > p {
-    @apply italic text-white/25;
+    @apply italic opacity-25;
+    color: white;
 }
 
 .core-skill-toggle:hover, .core-skill-toggle:has(~ .core-skill-toggle:hover) {
-    @apply border-white/50;
+    @apply opacity-50;
+    border-color: var(--core-skill-toggle-color);
 }
 
 .core-skill-toggle:hover > p, .core-skill-toggle:has(~ .core-skill-toggle:hover) > p {
-    @apply text-white/50;
+    @apply opacity-50;
+    color: var(--core-skill-toggle-color);
 }
 
 .core-skill-toggle.active {
-    @apply !border-white;
+    @apply !opacity-100;
+    border-color: var(--core-skill-toggle-color)!important;
 }
 
 .core-skill-toggle.active > p {
-    @apply !text-white;
+    @apply !opacity-100;
+    color: var(--core-skill-toggle-color)!important;
 }
 
 
@@ -29,24 +38,29 @@
     .core-skill-toggle-xl {
         @apply p-2 pl-3 pr-4 border-4 rounded-full cursor-pointer;
     }
-
+    
     .core-skill-toggle-xl > p {
-        @apply italic text-white/25 text-2xl;
+        @apply italic text-2xl opacity-25;
+        color: white;
     }
-
+    
     .core-skill-toggle-xl:hover, .core-skill-toggle-xl:has(~ .core-skill-toggle-xl:hover) {
-        @apply border-white/50;
+        @apply opacity-50;
+        border-color: var(--core-skill-toggle-color);
     }
-
+    
     .core-skill-toggle-xl:hover > p, .core-skill-toggle-xl:has(~ .core-skill-toggle-xl:hover) > p {
-        @apply text-white/50;
+        @apply opacity-50;
+        color: var(--core-skill-toggle-color);
     }
-
+    
     .core-skill-toggle-xl.active {
-        @apply !border-white;
+        @apply !opacity-100;
+        border-color: var(--core-skill-toggle-color)!important;
     }
-
+    
     .core-skill-toggle-xl.active > p {
-        @apply !text-white;
+        @apply !opacity-100;
+        color: var(--core-skill-toggle-color)!important;
     }
 }

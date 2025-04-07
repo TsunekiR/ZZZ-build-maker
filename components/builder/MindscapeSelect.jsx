@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import React, { useEffect } from 'react';
 import { useCurrentChar, useCurrentCharDispatch } from "@/contexts/CurrentCharContext";
 
-const CoreSkillToggle = () => {
+const MindscapeSelect = () => {
     const currentChar = useCurrentChar();
     const currentCharDispatch = useCurrentCharDispatch();
 
@@ -55,4 +55,4 @@ const CoreSkillToggle = () => {
     )
 }
 
-export default CoreSkillToggle;
+export default MindscapeSelect;

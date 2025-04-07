@@ -6,7 +6,7 @@ import { useChars } from "@/hooks/useChars";
 import { stdStatsCalculator } from "@/libs/stdStatsCalculator";
 import { combatStatsCalculator } from "@/libs/combatStatsCalculator";
 import { moveValueCalc } from "@/libs/moveCalculator";
-import { getCharHalfBodyImg, getFactionImg, getAttributeImg, getTypeImg } from "@/lib/utils"
+import { getCharHalfBodyImg, getFactionImg, getAttributeImg, getTypeImg, getCharColor } from "@/lib/utils"
 import { Card, CardContent } from "@/components/ui/card";
 import CoreSkillToggle from "@/components/builder/CoreSkillToggle";
 import { Badge } from "@/components/ui/badge";
@@ -84,7 +84,7 @@ export default function CharBuilder() {
                                         </div>
                                     </div>
                                     <div className="flex flex-row py-1 gap-4">
-                                        <CoreSkillToggle coreSkillLevel={currentChar.coreSkillLevel} onChange={handleChangeCoreSkillLevel}/>
+                                        <CoreSkillToggle coreSkillLevel={currentChar.coreSkillLevel} onChange={handleChangeCoreSkillLevel} color={getCharColor(selectedChar.charInfo.charName)}/>
                                         <MindscapeSelect />
                                     </div>
                                 </div>
