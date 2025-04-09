@@ -1,0 +1,373 @@
+{
+    "charInfo" : {
+        "charName" : "Lighter",
+        "charType" : "stunner",
+        "charAttribute" : "fire",
+        "charFaction" : "Sons of Calydon",
+        "moveList" : {
+            "basicAttack" : [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],
+            "dashAttack" : [17],
+            "dodgeCounter" : [18],
+            "quickAssist" : [19],
+            "assistFollowup" : [20],
+            "specialAttack" : [21],
+            "exSpecialAttack" : [22,23],
+            "chainAttack" : [24],
+            "ultimate" : [25],
+            "mindscape" : [26]
+        }
+    },
+    "additionalAbilityConditions" : ["condition1","condition2"],
+    "charBaseStats":{
+        "hp" : 8253,
+        "atk" : 722,
+        "def" : 612,
+        "impact" : 119,
+        "critRate" : 5,
+        "critDmg" : 50,
+        "anomalyMastery" : 91,
+        "anomalyProficiency" : 90,
+        "penRatio" : 0,
+        "energyRegen" : 1.2
+    },
+    "charSelfBuffs":{
+        "combatStats" :[
+            {
+                "id" : "impact",
+                "buffs" : [
+                    {
+                        "type"  : "percent" ,
+                        "value" : [],
+                        "origin" : ["core"],
+                        "bonusCondition" : [0, 1, 2, 3, 4, 5, 6],
+                        "bonusValue" : [10, 11.7, 13.3, 15, 16.7, 18.3, 20]
+                    }]
+
+
+            }
+        ],
+        "stdStats":[
+            {
+                "id" : "atk",
+                "buffs" : [
+                    {
+                        "type"  : "flat" ,
+                        "value" : [0],
+                        "origin" : ["core"],
+                        "bonusCondition" : [2, 4, 6],
+                        "bonusValue" : [25, 50, 75]
+                    }]
+
+
+            },
+            {
+                "id" : "impact",
+                "buffs" : [
+                    {
+                        "type"  : "flat" ,
+                        "value" : [0],
+                        "origin" : ["core"],
+                        "bonusCondition" : [1, 3, 5],
+                        "bonusValue" : [6, 12, 18]
+                    }]
+
+
+            }
+        ],
+        "moves" : [
+            {
+                "id" : 0,
+                "buffs" : [
+                    {
+                        "type"  : "additionalFireDmg" ,
+                        "value" : [25],
+                        "origin" : ["additionalAbility"],
+                        "scalingStat" : ["impact"],
+                        "scalingValue" : [170, 10, 5, 75],
+                        "bonusCondition" : ["mindscape"],
+                        "bonusValue" : [2, 20]
+                    },
+                    {
+                        "type"  : "additionalIceDmg" ,
+                        "value" : [25],
+                        "origin" : ["additionalAbility"],
+                        "scalingStat" : ["impact"],
+                        "scalingValue" : [170, 10, 5, 75],
+                        "bonusCondition" : ["mindscape"],
+                        "bonusValue" : [2, 20]
+                    }
+                ]
+            }
+        ]
+    },
+    "charTeamBuffs":{
+        "moves": {
+            "buffs" : [
+                {
+                    "type"  : "additionalFireDmg" ,
+                    "value" : [25],
+                    "origin" : ["additionalAbility"],
+                    "scalingStat" : ["impact"],
+                    "scalingValue" : [170, 10, 5, 75],
+                    "bonusCondition" : ["mindscape"],
+                    "bonusValue" : [2, 20]
+                },
+                {
+                    "type"  : "additionalIceDmg" ,
+                    "value" : [25],
+                    "origin" : ["additionalAbility"],
+                    "scalingStat" : ["impact"],
+                    "scalingValue" : [170, 10, 5, 75],
+                    "bonusCondition" : ["mindscape"],
+                    "bonusValue" : [2, 20]
+                }
+            ]
+        }
+    },
+    "charEnemyDebuffs":{
+        "debuffs" : [
+            {
+                "type"  : "redFireRes" ,
+                "value" : [15, 15, 15, 15, 15, 15, 15],
+                "origin" : ["core"],
+                "bonusCondition" : ["mindscape"],
+                "bonusValue" : [1, 10]
+            },
+            {
+                "type"  : "redIceRes" ,
+                "value" : [15, 15, 15, 15, 15, 15, 15],
+                "origin" : ["core"],
+                "bonusCondition" : ["mindscape"],
+                "bonusValue" : [1, 10]
+            }
+        ]
+    },
+    "moveValues":[
+        {
+            "id" : 1,
+            "element" : "phys",
+            "name" : "1st-Hit",
+            "family" : "Basic Attack: L-Form Thundering Fist",
+            "dmgValues" : [39.2,3.6],
+            "dazeValues" : [19.6,0.9],
+            "anomBuildupValues": [0]
+        },
+        {
+            "id" : 2,
+            "element" : "phys",
+            "name" : "2nd-Hit",
+            "family" : "Basic Attack: L-Form Thundering Fist",
+            "dmgValues" : [48,4.4],
+            "dazeValues" : [32.9,1.5],
+            "anomBuildupValues": [0]
+        },
+        {
+            "id" : 3,
+            "element" : "phys",
+            "name" : "3rd-Hit",
+            "family" : "Basic Attack: L-Form Thundering Fist",
+            "dmgValues" : [55.3,5.1],
+            "dazeValues" : [46.7,2.2],
+            "anomBuildupValues": [0]
+        },
+        {
+            "id" : 4,
+            "element" : "phys",
+            "name" : "Follow-Up 1st-Hit",
+            "family" : "Basic Attack: L-Form Thundering Fist",
+            "dmgValues" : [86.9,7.9],
+            "dazeValues" : [60.5,2.8],
+            "anomBuildupValues": [0]
+        },
+        {
+            "id" : 5,
+            "element" : "phys",
+            "name" : "Follow-Up 2nd-Hit",
+            "family" : "Basic Attack: L-Form Thundering Fist",
+            "dmgValues" : [47.7,4.4],
+            "dazeValues" : [33.2,1.6],
+            "anomBuildupValues": [0]
+        },
+        {
+            "id" : 6,
+            "element" : "phys",
+            "name" : "Follow-Up 3rd-Hit",
+            "family" : "Basic Attack: L-Form Thundering Fist",
+            "dmgValues" : [58.1,5.3],
+            "dazeValues" : [40.4,1.9],
+            "anomBuildupValues": [0]
+        },
+        {
+            "id" : 7,
+            "element" : "phys",
+            "name" : "Follow-Up 4th-Hit",
+            "family" : "Basic Attack: L-Form Thundering Fist",
+            "dmgValues" : [32.8,3],
+            "dazeValues" : [22.8,1.1],
+            "anomBuildupValues": [0]
+        },
+        {
+            "id" : 8,
+            "element" : "phys",
+            "name" : "Follow-Up 5th-Hit",
+            "family" : "Basic Attack: L-Form Thundering Fist",
+            "dmgValues" : [89,8.1],
+            "dazeValues" : [61.9,2.9],
+            "anomBuildupValues": [0]
+        },
+        {
+            "id" : 9,
+            "element" : "fire",
+            "name" : "4th-Hit",
+            "family" : "Basic Attack: L-Form Thundering Fist",
+            "dmgValues" : [78.9,7.2],
+            "dazeValues" : [76.1,3.5],
+            "anomBuildupValues": [55.05]
+        },
+        {
+            "id" : 10,
+            "element" : "fire",
+            "name" : "5th-Hit Startup",
+            "family" : "Basic Attack: L-Form Thundering Fist",
+            "dmgValues" : [163.6,14.9],
+            "dazeValues" : [136.3,6.2],
+            "anomBuildupValues": [123.87]
+        },
+        {
+            "id" : 11,
+            "element" : "fire",
+            "name" : "5th-Hit Combo",
+            "family" : "Basic Attack: L-Form Thundering Fist",
+            "dmgValues" : [122.9,11.2],
+            "dazeValues" : [81.3,3.7],
+            "anomBuildupValues": [77.7]
+        },
+        {
+            "id" : 12,
+            "element" : "fire",
+            "name" : "5th-Hit Finisher",
+            "family" : "Basic Attack: L-Form Thundering Fist",
+            "dmgValues" : [104.6,9.6],
+            "dazeValues" : [79.5,3.7],
+            "anomBuildupValues": [76.05]
+        },
+        {
+            "id" : 13,
+            "element" : "fire",
+            "name" : "5th-Hit Startup (Morale)",
+            "family" : "Basic Attack: L-Form Thundering Fist",
+            "dmgValues" : [177.2,16.2],
+            "dazeValues" : [136.3,6.2],
+            "anomBuildupValues": [100.23]
+        },
+        {
+            "id" : 14,
+            "element" : "fire",
+            "name" : "5th-Hit Combo (Morale)",
+            "family" : "Basic Attack: L-Form Thundering Fist",
+            "dmgValues" : [364.3,33.2],
+            "dazeValues" : [85.5,3.9],
+            "anomBuildupValues": [123.87]
+        },
+        {
+            "id" : 15,
+            "element" : "fire",
+            "name" : "5th-Hit Finisher (Morale)",
+            "family" : "Basic Attack: L-Form Thundering Fist",
+            "dmgValues" : [119.7,10.9],
+            "dazeValues" : [92.1,4.2],
+            "anomBuildupValues": [77.7]
+        },
+        {
+            "id" : 16,
+            "element" : "fire",
+            "name" : "5th-Hit Powerful Finisher (Morale)",
+            "family" : "Basic Attack: L-Form Thundering Fist",
+            "dmgValues" : [435.4,39.6],
+            "dazeValues" : [132.4,5.1],
+            "anomBuildupValues": [83.66]
+        },
+        {
+            "id" : 17,
+            "element" : "phys",
+            "name" : "",
+            "family" : "Dash Attack: Charging Slam",
+            "dmgValues" : [89.9,8.2],
+            "dazeValues" : [45,2.1],
+            "anomBuildupValues": [0]
+        },
+        {
+            "id" : 18,
+            "element" : "fire",
+            "name" : "",
+            "family" : "Dodge Counter: Blazing Flash",
+            "dmgValues" : [186.3,17],
+            "dazeValues" : [168.7,7.7],
+            "anomBuildupValues": [53.33]
+        },
+        {
+            "id" : 19,
+            "element" : "fire",
+            "name" : "",
+            "family" : "Quick Assist: Blazing Flash - Guard",
+            "dmgValues" : [69.9,6.4],
+            "dazeValues" : [69.7,3.2],
+            "anomBuildupValues": [63.33]
+        },
+        {
+            "id" : 20,
+            "element" : "fire",
+            "name" : "",
+            "family" : "Assist Follow-Up: Charging Slam - Stab",
+            "dmgValues" : [219.8,20],
+            "dazeValues" : [182.3,8.3],
+            "anomBuildupValues": [182.72]
+        },
+        {
+            "id" : 21,
+            "element" : "fire",
+            "name" : "",
+            "family" : "Special Attack: V-Form Sunrise Uppercut",
+            "dmgValues" : [36.3,3.3],
+            "dazeValues" : [36.3,1.7],
+            "anomBuildupValues": [30]
+        },
+        {
+            "id" : 22,
+            "element" : "fire",
+            "name" : "",
+            "family" : "EX Special Attack: V-Form Sunrise Uppercut - Full Distance",
+            "dmgValues" : [486.3,44.3],
+            "dazeValues" : [403.5,18.4],
+            "anomBuildupValues": [367.64]
+        },
+        {
+            "id" : 23,
+            "element" : "fire",
+            "name" : "Follow-up",
+            "family" : "EX Special Attack: V-Form Sunrise Uppercut - Full Distance",
+            "dmgValues" : [292.7,26.7],
+            "dazeValues" : [247.7,11.3],
+            "anomBuildupValues": []
+        },
+        {
+            "id" : 24,
+            "element" : "fire",
+            "name" : "",
+            "family" : "Chain Attack: V-Form Scorching Sun",
+            "dmgValues" : [712.1,64.8],
+            "dazeValues" : [273.2,12.5],
+            "anomBuildupValues": [447.83]
+        },
+        {
+            "id" : 25,
+            "element" : "fire",
+            "name" : "",
+            "family" : "Ultimate: W-Form Crowned Inferno",
+            "dmgValues" : [1508,137.1],
+            "dazeValues" : [947.4,43.1],
+            "anomBuildupValues": [96.69]
+        }
+    ]
+}
+

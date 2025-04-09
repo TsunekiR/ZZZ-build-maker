@@ -1,0 +1,394 @@
+{
+    "charInfo" : {
+        "charName" : "Soldier 11",
+        "charType" : "attacker",
+        "charAttribute" : "fire",
+        "charFaction" : "Obol Squad",
+        "moveList" : {
+            "basicAttack" : [1,2,3,4,5,6,7,8],
+            "dashAttack" : [9,10],
+            "dodgeCounter" : [11],
+            "specialAttack" : [12],
+            "exSpecialAttack" : [13],
+            "chainAttack" : [14],
+            "ultimate" : [15],
+            "quickAssist" : [16],
+            "assistFollowup" : [17]
+        }
+    },
+    "additionalAbilityConditions" : ["condition1","condition2"],
+    "charBaseStats":{
+        "hp" : 7673,
+        "atk" : 813,
+        "def" : 612,
+        "impact" : 93,
+        "critRate" : 5,
+        "critDmg" : 50,
+        "anomalyMastery" : 93,
+        "anomalyProficiency" : 94,
+        "penRatio" : 0,
+        "energyRegen" : 1.2
+    },
+    "charSelfBuffs":{
+        "combatStats" :[],
+        "stdStats":[
+            {
+                "id" : "atk",
+                "buffs" : [
+                    {
+                        "type"  : "flat" ,
+                        "value" : [0],
+                        "origin" : ["core"],
+                        "bonusCondition" : [2, 4, 6],
+                        "bonusValue" : [25, 50, 75]
+                    }]
+
+
+            },
+            {
+                "id" : "critRate",
+                "buffs" : [
+                    {
+                        "type"  : "flat" ,
+                        "value" : [0],
+                        "origin" : ["core"],
+                        "bonusCondition" : [1, 3, 5],
+                        "bonusValue" : [4.8, 9.6, 14.4]
+                    }]
+
+
+            }
+        ],
+        "moves" : [
+            {
+                "id" : 0,
+                "buffs" : [
+                    {
+                        "type"  : "additionalFireDmg" ,
+                        "value" : [10],
+                        "origin" : ["additionalAbility"],
+                        "bonusCondition" : ["stunned"],
+                        "bonusValue" : [22.5]
+                    }]
+            },
+            {
+                "id" : 5,
+                "buffs" : [
+                    {
+                        "type" : "additionalDmg",
+                        "value" : [35, 40.8, 46.6, 52.5, 58.3, 64.1, 70],
+                        "origin" : ["core"],
+                        "bonusCondition" : [0],
+                        "bonusValue" : [0]
+                    },
+                    {
+                        "type" : "ignoreFireRes",
+                        "value" : [0],
+                        "origin" : ["mindscape"],
+                        "bonusCondition" : [6],
+                        "bonusValue" : [25]
+                    },
+                    {
+                        "type" : "additionalDmg",
+                        "value" : [0],
+                        "origin" : ["mindscape"],
+                        "bonusCondition" : [2],
+                        "bonusValue" : [36]
+                    }
+
+
+                ]
+            },
+            {
+                "id" : 6,
+                "buffs" : [
+                    {
+                        "type" : "additionalDmg",
+                        "value" : [35, 40.8, 46.6, 52.5, 58.3, 64.1, 70],
+                        "origin" : ["core"],
+                        "bonusCondition" : [0],
+                        "bonusValue" : [0]
+                    },
+                    {
+                        "type" : "ignoreFireRes",
+                        "value" : [0],
+                        "origin" : ["mindscape"],
+                        "bonusCondition" : [6],
+                        "bonusValue" : [25]
+                    },
+                    {
+                        "type" : "additionalDmg",
+                        "value" : [0],
+                        "origin" : ["mindscape"],
+                        "bonusCondition" : [2],
+                        "bonusValue" : [36]
+                    }
+
+
+                ]
+            },
+            {
+                "id" : 7,
+                "buffs" : [
+                    {
+                        "type" : "additionalDmg",
+                        "value" : [35, 40.8, 46.6, 52.5, 58.3, 64.1, 70],
+                        "origin" : ["core"],
+                        "bonusCondition" : [0],
+                        "bonusValue" : [0]
+                    },
+                    {
+                        "type" : "ignoreFireRes",
+                        "value" : [0],
+                        "origin" : ["mindscape"],
+                        "bonusCondition" : [6],
+                        "bonusValue" : [25]
+                    },
+                    {
+                        "type" : "additionalDmg",
+                        "value" : [0],
+                        "origin" : ["mindscape"],
+                        "bonusCondition" : [2],
+                        "bonusValue" : [36]
+                    }
+
+
+                ]
+            },
+            {
+                "id" : 8,
+                "buffs" : [
+                    {
+                        "type" : "additionalDmg",
+                        "value" : [35, 40.8, 46.6, 52.5, 58.3, 64.1, 70],
+                        "origin" : ["core"],
+                        "bonusCondition" : [0],
+                        "bonusValue" : [0]
+                    },
+                    {
+                        "type" : "ignoreFireRes",
+                        "value" : [0],
+                        "origin" : ["mindscape"],
+                        "bonusCondition" : [6],
+                        "bonusValue" : [25]
+                    },
+                    {
+                        "type" : "additionalDmg",
+                        "value" : [0],
+                        "origin" : ["mindscape"],
+                        "bonusCondition" : [2],
+                        "bonusValue" : [36]
+                    }
+
+
+                ]
+            },
+            {
+                "id" : 10,
+                "buffs" : [
+                    {
+                        "type" : "additionalDmg",
+                        "value" : [35, 40.8, 46.6, 52.5, 58.3, 64.1, 70],
+                        "origin" : ["core"],
+                        "bonusCondition" : [0],
+                        "bonusValue" : [0]
+                    },
+                    {
+                        "type" : "ignoreFireRes",
+                        "value" : [0],
+                        "origin" : ["mindscape"],
+                        "bonusCondition" : [6],
+                        "bonusValue" : [25]
+                    },
+                    {
+                        "type" : "additionalDmg",
+                        "value" : [0],
+                        "origin" : ["mindscape"],
+                        "bonusCondition" : [2],
+                        "bonusValue" : [36]
+                    }
+
+
+                ]
+            },
+            {
+                "id" : 11,
+                "buffs" : [
+                    {
+                        "type" : "ignoreFireRes",
+                        "value" : [0],
+                        "origin" : ["mindscape"],
+                        "bonusCondition" : [6],
+                        "bonusValue" : [25]
+                    },
+                    {
+                        "type" : "additionalDmg",
+                        "value" : [0],
+                        "origin" : ["mindscape"],
+                        "bonusCondition" : [2],
+                        "bonusValue" : [36]
+                    }
+
+
+                ]
+            }
+        ]
+           
+    },  
+    "moveValues":[
+        {
+            "id" : 1,
+            "element" : "phys",
+            "name" : "1st-Hit",
+            "family" : "Basic Attack: Warmup Sparks",
+            "dmgValues" : [34.4,3.2],
+            "dazeValues" : [17.2,0.8],
+            "anomBuildupValues": [0,0]
+        },
+        {
+            "id" : 2,
+            "element" : "phys",
+            "name" : "2nd-Hit",
+            "family" : "Basic Attack: Warmup Sparks",
+            "dmgValues" : [41.2,3.8],
+            "dazeValues" : [34.4,1.6],
+            "anomBuildupValues": [0,0]
+        },
+        {
+            "id" : 3,
+            "element" : "phys",
+            "name" : "3rd-Hit",
+            "family" : "Basic Attack: Warmup Sparks",
+            "dmgValues" : [102.8,9.4],
+            "dazeValues" : [82.3,3.8],
+            "anomBuildupValues": [0,0]
+        },
+        {
+            "id" : 4,
+            "element" : "phys",
+            "name" : "4th-Hit",
+            "family" : "Basic Attack: Warmup Sparks",
+            "dmgValues" : [213.4,19.4],
+            "dazeValues" : [167.6,7.7],
+            "anomBuildupValues": [0,0]
+        },
+        {
+            "id" : 5,
+            "element" : "fire",
+            "name" : "1st-Hit",
+            "family" : "Basic Attack: Fire Suppression",
+            "dmgValues" : [55.1,5.1],
+            "dazeValues" : [18,0.9],
+            "anomBuildupValues": [17.05,0]
+        },
+        {
+            "id" : 6,
+            "element" : "fire",
+            "name" : "2nd-Hit",
+            "family" : "Basic Attack: Fire Suppression",
+            "dmgValues" : [57.2,5.2],
+            "dazeValues" : [33.6,1.6],
+            "anomBuildupValues": [31.91,0]
+        },
+        {
+            "id" : 7,
+            "element" : "fire",
+            "name" : "3rd-Hit",
+            "family" : "Basic Attack: Fire Suppression",
+            "dmgValues" : [132,12],
+            "dazeValues" : [75.2,3.5],
+            "anomBuildupValues": [71.57,0]
+        },
+        {
+            "id" : 8,
+            "element" : "fire",
+            "name" : "4th-Hit",
+            "family" : "Basic Attack: Fire Suppression",
+            "dmgValues" : [340.7,31],
+            "dazeValues" : [192,8.8],
+            "anomBuildupValues": [182.8,0]
+        },
+        {
+            "id" : 9,
+            "element" : "phys",
+            "name" : "",
+            "family" : "Dash Attack: Blazing Fire",
+            "dmgValues" : [68.3,6.3],
+            "dazeValues" : [34.2,1.6],
+            "anomBuildupValues": [0,0]
+        },
+        {
+            "id" : 10,
+            "element" : "fire",
+            "name" : "",
+            "family" : "Dash Attack: Fire Suppression",
+            "dmgValues" : [78.8,7.2],
+            "dazeValues" : [78.8,3.6],
+            "anomBuildupValues": [75,0]
+        },
+        {
+            "id" : 11,
+            "element" : "fire",
+            "name" : "",
+            "family" : "Dodge Counter: Backdraft",
+            "dmgValues" : [262,23.9],
+            "dazeValues" : [225.8,10.3],
+            "anomBuildupValues": [114.99,0]
+        },
+        {
+            "id" : 12,
+            "element" : "fire",
+            "name" : "",
+            "family" : "Special Attack: Raging Fire",
+            "dmgValues" : [52.6,4.8],
+            "dazeValues" : [52.6,2.4],
+            "anomBuildupValues": [50.01,0]
+        },
+        {
+            "id" : 13,
+            "element" : "fire",
+            "name" : "",
+            "family" : "EX Special Attack: Fervent Fire",
+            "dmgValues" : [675,61.4],
+            "dazeValues" : [543.5,24.8],
+            "anomBuildupValues": [114.99,0]
+        },
+        {
+            "id" : 14,
+            "element" : "fire",
+            "name" : "",
+            "family" : "Chain Attack: Uplifting Flame",
+            "dmgValues" : [632.5,57.5],
+            "dazeValues" : [213.6,9.8],
+            "anomBuildupValues": [114.99,0]
+        },
+        {
+            "id" : 15,
+            "element" : "fire",
+            "name" : "",
+            "family" : "Ultimate: Bellowing Flame",
+            "dmgValues" : [2103,191.2],
+            "dazeValues" : [285,13],
+            "anomBuildupValues": [114.99,0]
+        },
+        {
+            "id" : 16,
+            "element" : "fire",
+            "name" : "",
+            "family" : "Quick Assist: Covering Fire",
+            "dmgValues" : [120.8,11],
+            "dazeValues" : [120.8,5.5],
+            "anomBuildupValues": [114.99,0]
+        },
+        {
+            "id" : 17,
+            "element" : "fire",
+            "name" : "",
+            "family" : "Assist Follow-Up: Reignition",
+            "dmgValues" : [383.7,34.9],
+            "dazeValues" : [335.5,15.3],
+            "anomBuildupValues": [114.99,0]
+        }
+    ]
+}
+

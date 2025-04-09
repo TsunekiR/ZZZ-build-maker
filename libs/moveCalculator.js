@@ -40,7 +40,7 @@ function additionalDmgCalc(moveId,selectedChar,coreSkillLevel,mindscapeLevel) {
     return(additionalDmg);
 }
 
-function additionalElementalDmgCalc(moveId,selectedChar,coreSkillLevel,mindscapeLevel) {
+function additionalElementalDmgCalc(moveId,selectedChar,coreSkillLevel,mindscapeLevel, stats) {
     let additionalElementalDmg = 0;
     let buffList = selectedChar.charSelfBuffs.moves?.find((move) => move.id === moveId);
 
@@ -68,9 +68,19 @@ function additionalElementalDmgCalc(moveId,selectedChar,coreSkillLevel,mindscape
             if(buffList.buffs[index].type === "additional" + moveElement + "Dmg"){
                 if(buffList.buffs[index].origin[0] === "core"){
                     additionalElementalDmg += buffList.buffs[index].value[coreSkillLevel]/100;
-                } else {
+                }else if(buffList.buffs[index].origin[0] === "additionalAbility"){
+                    if (buffList.buffs[index].scalingStat){ // Case Lighter
+                        additionalElementalDmg += buffList.buffs[index].value/1 + Math.min(Math.max(((stats[buffList.buffs[index].scalingStat[0]] - 170) * 0.5),0),50)
+                        if (mindscapeLevel >= buffList.buffs[index].bonusValue[0]){
+                            additionalElementalDmg = additionalElementalDmg * 1.2
+                        }
+                    } else {
+                        additionalElementalDmg += buffList.buffs[index].value/100;
+                    }
+                }else {
                     additionalElementalDmg += buffList.buffs[index].value[0]/100;
                 }
+                console.log(additionalElementalDmg)
             }
         }
     }
@@ -89,7 +99,7 @@ function basicAttackCalc (char, coreSkillLevel, mindscapeLevel, skillLevel, stat
             "id" : moveId,
             "dazeValue" : stats["impact"] * baseMoveValues["dazeValue"],
             "anomBuildup" : (stats["anomalyMastery"]/100) * baseMoveValues["anomBuildup"],
-            "dmgValue" :  stats["atk"] * baseMoveValues["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel))
+            "dmgValue" :  stats["atk"] * baseMoveValues["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel,stats))
         })
     }
     return basicAtk
@@ -106,7 +116,7 @@ function dodgeCalc (char, coreSkillLevel, mindscapeLevel, skillLevel, stats){
             "id" : moveId,
             "dazeValue" : stats["impact"] * baseMoveValues["dazeValue"],
             "anomBuildup" : (stats["anomalyMastery"]/100) * baseMoveValues["anomBuildup"],
-            "dmgValue" :  stats["atk"] * baseMoveValues["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel))
+            "dmgValue" :  stats["atk"] * baseMoveValues["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel,stats))
         })
     }
     for (const moveId of char.charInfo.moveList.dodgeCounter) {
@@ -118,7 +128,7 @@ function dodgeCalc (char, coreSkillLevel, mindscapeLevel, skillLevel, stats){
             "id" : moveId,
             "dazeValue" : stats["impact"] * baseMoveValues["dazeValue"],
             "anomBuildup" : (stats["anomalyMastery"]/100) * baseMoveValues["anomBuildup"],
-            "dmgValue" :  stats["atk"] * baseMoveValues["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel))
+            "dmgValue" :  stats["atk"] * baseMoveValues["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel,stats))
         })
     }
     return dashAtk
@@ -135,7 +145,7 @@ function assistCalc (char, coreSkillLevel, mindscapeLevel, skillLevel, stats){
             "id" : moveId,
             "dazeValue" : stats["impact"] * baseMoveValues["dazeValue"],
             "anomBuildup" : (stats["anomalyMastery"]/100) * baseMoveValues["anomBuildup"],
-            "dmgValue" :  stats["atk"] * baseMoveValues["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel))
+            "dmgValue" :  stats["atk"] * baseMoveValues["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel,stats))
         })
     }
     for (const moveId of char.charInfo.moveList.assistFollowup) {
@@ -147,7 +157,7 @@ function assistCalc (char, coreSkillLevel, mindscapeLevel, skillLevel, stats){
             "id" : moveId,
             "dazeValue" : stats["impact"] * baseMoveValues["dazeValue"],
             "anomBuildup" : (stats["anomalyMastery"]/100) * baseMoveValues["anomBuildup"],
-            "dmgValue" :  stats["atk"] * baseMoveValues["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel))
+            "dmgValue" :  stats["atk"] * baseMoveValues["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel,stats))
         })
     }
     return assist
@@ -164,7 +174,7 @@ function specialAttackCalc (char, coreSkillLevel, mindscapeLevel, skillLevel, st
             "id" : moveId,
             "dazeValue" : stats["impact"] * baseMoveValues["dazeValue"],
             "anomBuildup" : (stats["anomalyMastery"]/100) * baseMoveValues["anomBuildup"],
-            "dmgValue" :  stats["atk"] * baseMoveValues["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel))
+            "dmgValue" :  stats["atk"] * baseMoveValues["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel,stats))
         })
     }
     for (const moveId of char.charInfo.moveList.exSpecialAttack) {
@@ -176,7 +186,7 @@ function specialAttackCalc (char, coreSkillLevel, mindscapeLevel, skillLevel, st
             "id" : moveId,
             "dazeValue" : stats["impact"] * baseMoveValues["dazeValue"],
             "anomBuildup" : (stats["anomalyMastery"]/100) * baseMoveValues["anomBuildup"],
-            "dmgValue" :  stats["atk"] * baseMoveValues["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel))
+            "dmgValue" :  stats["atk"] * baseMoveValues["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel,stats))
         })
     }
     return specialAttack
@@ -193,7 +203,7 @@ function chainAttackCalc (char, coreSkillLevel, mindscapeLevel, skillLevel, stat
             "id" : moveId,
             "dazeValue" : stats["impact"] * baseMoveValues["dazeValue"],
             "anomBuildup" : (stats["anomalyMastery"]/100) * baseMoveValues["anomBuildup"],
-            "dmgValue" :  stats["atk"] * baseMoveValues["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel))
+            "dmgValue" :  stats["atk"] * baseMoveValues["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel,stats))
         })
     }
     for (const moveId of char.charInfo.moveList.ultimate) {
@@ -205,7 +215,7 @@ function chainAttackCalc (char, coreSkillLevel, mindscapeLevel, skillLevel, stat
             "id" : moveId,
             "dazeValue" : stats["impact"] * baseMoveValues["dazeValue"],
             "anomBuildup" : (stats["anomalyMastery"]/100) * baseMoveValues["anomBuildup"],
-            "dmgValue" :  stats["atk"] * baseMoveValues["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel))
+            "dmgValue" :  stats["atk"] * baseMoveValues["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel,stats))
         })
     }
     return chainAttack

@@ -31,7 +31,7 @@ export default function CharBuilder() {
     }, [currentChar]);
 
     let selectedCharCombatStats = useMemo(() => {
-        return selectedCharStdStats? combatStatsCalculator(selectedCharStdStats): null;
+        return selectedCharStdStats? combatStatsCalculator(selectedCharStdStats, selectedChar, currentChar): null;
     }, [selectedCharStdStats]);
     
     let selectedCharMoveValues = useMemo(() => {
