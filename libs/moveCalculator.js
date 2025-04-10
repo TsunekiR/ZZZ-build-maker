@@ -70,7 +70,7 @@ function additionalElementalDmgCalc(moveId,selectedChar,coreSkillLevel,mindscape
                     additionalElementalDmg += buffList.buffs[index].value[coreSkillLevel]/100;
                 }else if(buffList.buffs[index].origin[0] === "additionalAbility"){
                     if (buffList.buffs[index].scalingStat){ // Case Lighter
-                        additionalElementalDmg += buffList.buffs[index].value/1 + Math.min(Math.max(((stats[buffList.buffs[index].scalingStat[0]] - 170) * 0.5),0),50)
+                        additionalElementalDmg += (buffList.buffs[index].value/1 + Math.min(Math.max(((stats[buffList.buffs[index].scalingStat[0]] - 170) * 0.5),0),50))/100
                         if (mindscapeLevel >= buffList.buffs[index].bonusValue[0]){
                             additionalElementalDmg = additionalElementalDmg * 1.2
                         }
@@ -80,7 +80,6 @@ function additionalElementalDmgCalc(moveId,selectedChar,coreSkillLevel,mindscape
                 }else {
                     additionalElementalDmg += buffList.buffs[index].value[0]/100;
                 }
-                console.log(additionalElementalDmg)
             }
         }
     }
@@ -101,6 +100,7 @@ function basicAttackCalc (char, coreSkillLevel, mindscapeLevel, skillLevel, stat
             "anomBuildup" : (stats["anomalyMastery"]/100) * baseMoveValues["anomBuildup"],
             "dmgValue" :  stats["atk"] * baseMoveValues["dmgValue"] * (1 + additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel,stats))
         })
+        console.log("Atk: "+ stats["atk"] + " baseMV: "+ baseMoveValues["dmgValue"] + " addtionaldmg: "+ additionalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel) + " elemntal: " + additionalElementalDmgCalc(moveId,char,coreSkillLevel,mindscapeLevel,stats) )
     }
     return basicAtk
 }
