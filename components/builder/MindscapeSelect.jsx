@@ -15,23 +15,47 @@ const MindscapeSelect = () => {
 
     useEffect(() => {
         function handleResize() {
-            document.getElementById(currentChar.mindscapeLevel)&&document.getElementById(currentChar.mindscapeLevel).scrollIntoView({block: 'nearest', inline: 'start' });
+            document.getElementById(currentChar.mindscapeLevel) && document.getElementById(currentChar.mindscapeLevel).scrollIntoView({block: 'nearest', inline: 'start' });
         }
         window.addEventListener('resize', handleResize)
     })
 
+    const dispatchBatchSkillChange = (isIncrease) => {
+        dispatchSkillChange(isIncrease, "basicAttackLevel");
+        dispatchSkillChange(isIncrease, "dodgeLevel");
+        dispatchSkillChange(isIncrease, "assistLevel");
+        dispatchSkillChange(isIncrease, "specialAttackLevel");
+        dispatchSkillChange(isIncrease, "chainAttackLevel");
+    }
+
+    const dispatchSkillChange = (isIncrease, skill) => {
+        const currentLevel = parseInt(currentChar.skillLevels[skill]);
+        const newLevel = isIncrease ? (currentLevel + 2) : (currentLevel - 2);
+
+        currentCharDispatch({ type: 'updateSkill', name: skill, value: newLevel });
+    }
+
     const handleIncrease = () => {
-        if (currentChar.mindscapeLevel < 6){
-            currentCharDispatch({ type: 'update', name: 'mindscapeLevel', value: currentChar.mindscapeLevel + 1 });
-            document.getElementById(currentChar.mindscapeLevel + 1).scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-        }
+        handleChange(true);
     };
-    const handleDecrease = (skill, level) => {
-        if (currentChar.mindscapeLevel > 0){
-            currentCharDispatch({ type: 'update', name: 'mindscapeLevel', value: currentChar.mindscapeLevel - 1 });
-            document.getElementById(currentChar.mindscapeLevel - 1).scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-        }
+    const handleDecrease = () => {
+        handleChange(false);
     };
+    const handleChange = (isIncrease) => {
+        const canChange = isIncrease ? currentChar.mindscapeLevel < 6 : currentChar.mindscapeLevel > 0;
+        if (canChange) {
+            const newLevel = isIncrease ? currentChar.mindscapeLevel + 1 : currentChar.mindscapeLevel - 1;
+
+            currentCharDispatch({ type: 'update', name: 'mindscapeLevel', value: newLevel });
+            const isChangeSkills = isIncrease && (newLevel === 3 || newLevel === 5) || !isIncrease && (newLevel === 2 || newLevel === 4);
+            if (isChangeSkills) {
+                dispatchBatchSkillChange(isIncrease);
+            }
+            
+            // Scroll to the new level
+            document.getElementById(newLevel).scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        }
+    }
 
 
     return (

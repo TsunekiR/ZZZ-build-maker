@@ -1,13 +1,42 @@
 import { Slider } from "@/components/ui/slider"
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useCurrentChar, useCurrentCharDispatch } from "@/contexts/CurrentCharContext";
+
+const getMaxSkillLevelFromMindscapeLevel = (mindscapeLevel) => {
+    if(mindscapeLevel >= 5) {
+        return 16;
+    }
+    if(mindscapeLevel >= 3) {
+        return 14;
+    }
+    return 12;
+}
+
+const getMinSkillLevelFromMindscapeLevel = (mindscapeLevel) => {
+    if(mindscapeLevel >= 5) {
+        return 5;
+    }
+    if(mindscapeLevel >= 3) {
+        return 3;
+    }
+    return 1;
+}
 
 const LevelSelectSlider = (props) => {
     const skill = props.skill
     const currentChar = useCurrentChar();
     const currentCharDispatch = useCurrentCharDispatch();
-    
+
+    const mindscapeLevel = currentChar.mindscapeLevel;
+    const [maxLevel, setMaxLevel] = useState(getMaxSkillLevelFromMindscapeLevel(mindscapeLevel));
+    const [minLevel, setMinLevel] = useState(getMinSkillLevelFromMindscapeLevel(mindscapeLevel));
+
+    useEffect(() => {
+        setMinLevel(getMinSkillLevelFromMindscapeLevel(mindscapeLevel));
+        setMaxLevel(getMaxSkillLevelFromMindscapeLevel(mindscapeLevel));
+    }, [mindscapeLevel]);
+
     const handleChange = (skill, level) => {
         currentCharDispatch({ type: 'updateSkill', name: skill, value: level });
     };
@@ -41,8 +70,11 @@ const LevelSelectSlider = (props) => {
 
     return (
         <div className="flex w-full gap-2">
-            <Slider defaultValue={[skillLevel]} max={16} min={1} step={1} onValueChange={(i) => {handleChange(skillNameParam, i)}} className="w-full"/>
-            <p>{skillLevel}</p>
+            <Slider value={[skillLevel]} max={maxLevel} min={minLevel} step={1} onValueChange={(i) => {handleChange(skillNameParam, i)}} className="w-full"/>
+            <div className="inline-block align-bottom">
+                {skillLevel}
+                <span className="ml-1 text-xs text-muted-foreground">/{maxLevel}</span>
+            </div>
         </div>
     );
 } ;
